@@ -7,41 +7,43 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-    .w3-row-padding img {margin-bottom: 12px}
-    /* Set the width of the sidebar to 120px */
-    .w3-sidebar {width: 120px;background: #222;}
-    /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-    #main {margin-left: 120px}
-    /* Remove margins from "page content" on small screens */
-    @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+   <style>
+        body, h1, h2, h3, h4, h5, h6 {font-family: "Montserrat", sans-serif}
+        .w3-row-padding img {margin-bottom: 12px}
+        .w3-sidebar {width: 120px;background: #222;}
+        #main {margin-left: 120px}
+        @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+        .certificates {margin-top: 20px;}
+        .certificate-item {margin-bottom: 20px; padding: 10px; background-color: #333; border-radius: 5px; color: white;}
+        .certificate-item img {width: 80px; height: 80px; border-radius: 50%; margin-right: 15px;}
+        .certificate-link {color: #4CAF50; text-decoration: none;}
+        .certificate-link:hover {text-decoration: underline;}
     </style>
   </head>
 <body class="w3-black">
 
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p>HOME</p>
-  </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p>ABOUT</p>
-  </a>
-  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-eye w3-xxlarge"></i>
-    <p>RESUME</p>
-  </a>
-  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-eye w3-xxlarge"></i>
-    <p>CONTACT</p>
-  </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p>PROJECTS</p>
-  </a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+        <i class="fa fa-home w3-xxlarge"></i>
+        <p>HOME</p>
+    </a>
+    <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-user w3-xxlarge"></i>
+        <p>ABOUT</p>
+    </a>
+    <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-eye w3-xxlarge"></i>
+        <p>RESUME</p>
+    </a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-envelope w3-xxlarge"></i>
+        <p>CONTACT</p>
+    </a>
+    <a href="#projects" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+        <i class="fa fa-folder w3-xxlarge"></i>
+        <p>PROJECTS</p>
+    </a>
 </nav>
 
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
@@ -97,36 +99,54 @@
       </form>
     
     
-<div class="certificates">
-    <h3 class="w3-padding-24 w3-text-light-grey">Certificates</h3>
-    
-    <img src="https://yt3.googleusercontent.com/8kmI-l1suZxgItpAe359N-jJCBct1PXe99e04kTit8XWE3D_pBnctd6pEiwwmapHbDMmC21E45Q=s900-c-k-c0x00ffffff-no-rj" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-    <p>
-        <span class="w3-large w3-margin-right"> Python For Data Science </span> Udemy <a href="https://www.udemy.com/certificate/UC-5a6925e9-314d-41f4-bbd9-1d5de0778b2a/"> Certificate </a>
-    </p>
+<!-- Certificates Section -->
+    <div class="certificates w3-content w3-justify w3-text-grey w3-padding-64">
+        <h2 class="w3-text-light-grey">Certificates</h2>
+        <hr style="width:200px" class="w3-opacity">
 
-  <img src="https://play-lh.googleusercontent.com/zIO-uuTBjFigUIswv_h9S0-wVIkno_obwannvzr7NrXbh_MXL_khqV7gEqBly6KXEi4" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-<p>
-  <span class="w3-large w3-margin-right"> Machine Learning Fundamentals with Python </span> Data Camp <a href="https://www.datacamp.com/statement-of-accomplishment/track/72e5d9ab53b5cf710472e9fcc7930ec9cf9e6823?raw=1/"> Certificate </a>
-</p>
+        <div class="certificate-item">
+            <img src="https://yt3.googleusercontent.com/8kmI-l1suZxgItpAe359N-jJCBct1PXe99e04kTit8XWE3D_pBnctd6pEiwwmapHbDMmC21E45Q=s900-c-k-c0x00ffffff-no-rj" alt="Python For Data Science">
+            <span class="w3-large">Python For Data Science</span> - Udemy 
+            <a href="https://www.udemy.com/certificate/UC-5a6925e9-314d-41f4-bbd9-1d5de0778b2a/" class="certificate-link">Certificate</a>
+        </div>
 
-  <img src="https://play-lh.googleusercontent.com/zIO-uuTBjFigUIswv_h9S0-wVIkno_obwannvzr7NrXbh_MXL_khqV7gEqBly6KXEi4" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-<p>
-  <span class="w3-large w3-margin-right"> Deep Learning in Python </span> Data Camp <a href="https://www.datacamp.com/statement-of-accomplishment/track/68569ea309b8c0c2ba87a75b7577efc86fa84a70?raw=1"> Certficate </a></p>
+        <div class="certificate-item">
+            <img src="https://play-lh.googleusercontent.com/zIO-uuTBjFigUIswv_h9S0-wVIkno_obwannvzr7NrXbh_MXL_khqV7gEqBly6KXEi4" alt="Machine Learning Fundamentals">
+            <span class="w3-large">Machine Learning Fundamentals with Python</span> - Data Camp 
+            <a href="https://www.datacamp.com/statement-of-accomplishment/track/72e5d9ab53b5cf710472e9fcc7930ec9cf9e6823?raw=1" class="certificate-link">Certificate</a>
+        </div>
 
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD6asIVHGu9jD0jvuASuTjYkEU9og2AP1FnQ&s" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-<p><span class="w3-large w3-margin-right"> Udacity Advanced Android Development NANODEGREE </span> Udacity <a href="https://www.udacity.com/certificate/FJRHEGJA"> Certificate </a> </p>
+        <div class="certificate-item">
+            <img src="https://play-lh.googleusercontent.com/zIO-uuTBjFigUIswv_h9S0-wVIkno_obwannvzr7NrXbh_MXL_khqV7gEqBly6KXEi4" alt="Deep Learning in Python">
+            <span class="w3-large">Deep Learning in Python</span> - Data Camp 
+            <a href="https://www.datacamp.com/statement-of-accomplishment/track/68569ea309b8c0c2ba87a75b7577efc86fa84a70?raw=1" class="certificate-link">Certificate</a>
+        </div>
 
-  <img src="https://yt3.googleusercontent.com/8kmI-l1suZxgItpAe359N-jJCBct1PXe99e04kTit8XWE3D_pBnctd6pEiwwmapHbDMmC21E45Q=s900-c-k-c0x00ffffff-no-rj" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-<p><span class="w3-large w3-margin-right"> Udemy Web Development Bootcamp </span> Udemy <a href="https://www.udemy.com/certificate/UC-106c298f-c24a-4fd0-b6bd-10b92463a0ea/"> Certificate </a> </p>
+        <div class="certificate-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD6asIVHGu9jD0jvuASuTjYkEU9og2AP1FnQ&s" alt="Udacity Advanced Android Development">
+            <span class="w3-large">Udacity Advanced Android Development NANODEGREE</span> - Udacity 
+            <a href="https://www.udacity.com/certificate/FJRHEGJA" class="certificate-link">Certificate</a>
+        </div>
 
-  <img src="https://media.licdn.com/dms/image/v2/C560BAQGK3uuhQer46g/company-logo_200_200/company-logo_200_200/0/1631351788797?e=2147483647&v=beta&t=oGL-yHbzSy8MbCU-d4CfsELlfgQP3KX_fm5F6wcaGxA" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-<p><span class="w3-large w3-margin-right">UI/UX Design</span> Information Technology Institute (ITI) <a href="https://drive.google.com/file/d/1bWYxW-e57ZPWOLPG6O_orXv60A8dOEtq/view"> Certificate </a></p>
+        <div class="certificate-item">
+            <img src="https://yt3.googleusercontent.com/8kmI-l1suZxgItpAe359N-jJCBct1PXe99e04kTit8XWE3D_pBnctd6pEiwwmapHbDMmC21E45Q=s900-c-k-c0x00ffffff-no-rj" alt="Udemy Web Development Bootcamp">
+            <span class="w3-large">Udemy Web Development Bootcamp</span> - Udemy 
+            <a href="https://www.udemy.com/certificate/UC-106c298f-c24a-4fd0-b6bd-10b92463a0ea/" class="certificate-link">Certificate</a>
+        </div>
 
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDFijOLA4BJdm_L4iA7se4XdAiC6rw6vH7Jg&s" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-<p><span class="w3-large w3-margin-right"> Machine Learning </span> Canadian International College (CIC) <a href="https://drive.google.com/file/d/1f7wn8mVON0eO8M0tFflo5rDmhMLFHX3w/view"> Certificate </a></p>
-    
-</div>
+        <div class="certificate-item">
+            <img src="https://media.licdn.com/dms/image/v2/C560BAQGK3uuhQer46g/company-logo_200_200/company-logo_200_200/0/1631351788797?e=2147483647&v=beta&t=oGL-yHbzSy8MbCU-d4CfsELlfgQP3KX_fm5F6wcaGxA" alt="UI/UX Design">
+            <span class="w3-large">UI/UX Design</span> - Information Technology Institute (ITI) 
+            <a href="https://drive.google.com/file/d/1bWYxW-e57ZPWOLPG6O_orXv60A8dOEtq/view" class="certificate-link">Certificate</a>
+        </div>
+
+        <div class="certificate-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDFijOLA4BJdm_L4iA7se4XdAiC6rw6vH7Jg&s" alt="Machine Learning">
+            <span class="w3-large">Machine Learning</span> - Canadian International College (CIC) 
+            <a href="https://drive.google.com/file/d/1f7wn8mVON0eO8M0tFflo5rDmhMLFHX3w/view" class="certificate-link">Certificate</a>
+        </div>
+    </div>
+
   
   <!-- Portfolio Section -->
   <div class="w3-padding-64 w3-content" id="photos">
