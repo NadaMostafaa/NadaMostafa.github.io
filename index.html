@@ -20,6 +20,35 @@ body, h1, h2, h3, h4, h5, h6 {font-family: "Montserrat", sans-serif}
 .certificate-item img {width: 80px; height: 80px; border-radius: 50%; margin-right: 15px;}
 .certificate-link {color: #4CAF50; text-decoration: none;}
 .certificate-link:hover {text-decoration: underline;}
+    .resume-section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #fff;
+    color: #333;
+  }
+  .resume-section h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #555;
+  }
+  .resume-section hr {
+    border: 0;
+    border-top: 2px solid #ccc;
+    width: 100px;
+    margin: 20px auto;
+  }
+  .resume-section .resume-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  .resume-section .resume-button:hover {
+    background-color: #0056b3;
+  }
 </style>
 </head>
 <body class="w3-black">
@@ -71,18 +100,22 @@ body, h1, h2, h3, h4, h5, h6 {font-family: "Montserrat", sans-serif}
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
     <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Nada Mostafa</h1>
-    <h2>Data Scientist</h2>
+    <h2>Data Scientist | Master's Student</h2>
   </header>
 
   <!-- About Section -->
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
     <h2 class="w3-text-light-grey">Data Science Innovator</h2>
     <hr style="width:200px" class="w3-opacity">
-    <p>A passionate Data Science Pre-Master's student at Helwan University, I'm dedicated to harnessing data science to create impactful solutions. My experience as a teaching assistant has honed my communication and problem-solving abilities. With a strong foundation in Android development, full-stack development, and UI/UX design, I'm equipped to build well-rounded applications. Highly motivated and self-directed, I'm eager to contribute to innovative projects.
+    <p>Aspiring Data Scientist with a strong academic background in computer science and a focus on data science applications. Currently pursuing a pre-master's degree at Helwan University's School of Computer and Artificial Intelligence. My technical skills, including Android development, full-stack development, and UI/UX design, combined with my teaching assistant experience, make me a versatile and motivated individual. Seeking opportunities to contribute to cutting-edge data science projects and advance my career in the field.
     </p>
 <h3 class="w3-text-light-grey">My Skills</h3>
 
 <p class="w3-wide">Programming Languages (Python, C++, Java)</p>
+<div class="w3-white">
+    <div class="w3-dark-grey" style="height:28px;width:95%"></div>
+</div>
+  <p class="w3-wide">Mathematics & Statistics </p>
 <div class="w3-white">
     <div class="w3-dark-grey" style="height:28px;width:95%"></div>
 </div>
@@ -92,24 +125,14 @@ body, h1, h2, h3, h4, h5, h6 {font-family: "Montserrat", sans-serif}
     <div class="w3-dark-grey" style="height:28px;width:85%"></div>
 </div>
 
-<p class="w3-wide">Data Visualization</p>
-<div class="w3-white">
-    <div class="w3-dark-grey" style="height:28px;width:85%"></div>
-</div>
-
-<p class="w3-wide">Machine Learning and Deep Learning</p>
+    <p class="w3-wide">Machine Learning and Deep Learning</p>
 <div class="w3-white">
     <div class="w3-dark-grey" style="height:28px;width:80%"></div>
 </div>
 
-<p class="w3-wide">Mobile Development</p>
+<p class="w3-wide">Data Visualization</p>
 <div class="w3-white">
-    <div class="w3-dark-grey" style="height:28px;width:90%"></div>
-</div>
-
-<p class="w3-wide">Full Stack Web Development</p>
-<div class="w3-white">
-    <div class="w3-dark-grey" style="height:28px;width:90%"></div>
+    <div class="w3-dark-grey" style="height:28px;width:85%"></div>
 </div>
     
 
@@ -209,14 +232,14 @@ body, h1, h2, h3, h4, h5, h6 {font-family: "Montserrat", sans-serif}
 </div>
 <!-- End Projects Section -->
 
-<div class="w3-container w3-padding-32" id="resume"> 
-  <!-- Resume Section -->
-<div class="w3-padding-64 w3-content w3-text-grey" id="resume">
-    <h2 class="w3-text-light-grey">My Resume</h2>
-    <hr style="width:200px" class="w3-opacity">
-    <a href="https://drive.google.com/file/d/1mWGUnL6UR_ZZ6356ZpyeLa95mmGqy1w0/view?usp=sharing" class="w3-button w3-light-grey w3-padding-large" download>
-        <i class="fa fa-eye"></i> View Resume
+<div class="resume-section">
+  <div class="w3-container">
+    <h2>My Resume</h2>
+    <hr>
+    <a href="https://drive.google.com/file/d/1mWGUnL6UR_ZZ6356ZpyeLa95mmGqy1w0/view?usp=sharing" class="resume-button" download>
+      <i class="fa fa-eye"></i> View Resume
     </a>
+  </div>
 </div>
 
 <!-- Contact and Footer Section -->
@@ -227,11 +250,14 @@ body, h1, h2, h3, h4, h5, h6 {font-family: "Montserrat", sans-serif}
     <div class="w3-section">
         <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Cairo, Egypt</p>
         <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Email: Nadam4943@gmail.com</p>
+        <p><i class="fa fa-linkedin fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Linkedin</p>
+        <p><i class="fa fa-github fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> GitHub</p>
+
+      
+
     </div>
     <!-- Footer Content -->
-    <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-        <a href="https://github.com/NadaMostafaa"><i class="fa fa-github w3-hover-opacity"></i></a>
-        <a href="https://www.linkedin.com/in/nadamostafaali/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+    
     </footer>
 </div>
   
