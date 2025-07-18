@@ -1,35 +1,74 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="icon" href="https://github.com/NadaMostafaa/NadaMostafa.github.io/blob/main/N.png?raw=true" type="image/x-icon">
-    <title>Nada Mostafa</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body, h1, h2, h3, h4, h5, h6 {font-family: "Montserrat", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
-.w3-sidebar {width: 250px;background: #222;}
-#main {margin-left: 120px}
-@media only screen and (max-width: 600px) {#main {margin-left:   
- 0}}
-.certificates {margin-top: 20px;}
-.certificate-item {margin-bottom: 20px; padding: 10px; background-color: #333; border-radius: 5px; color: white;}
-.certificate-item img {width: 80px; height: 80px; border-radius: 50%; margin-right: 15px;}
-.certificate-link {color: #4CAF50; text-decoration: none;}
-.certificate-link:hover {text-decoration: underline;}
- 20px auto;
-  }
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nada Mostafa</title>
+  <meta name="description" content="Nada Mostafa's portfolio - Data Scientist and Master's student showcasing projects, skills, and certifications.">
+  <link rel="icon" href="https://github.com/NadaMostafaa/NadaMostafa.github.io/blob/main/N.png?raw=true" type="image/x-icon">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-</style>
+  <style>
+    body, h1, h2, h3, h4, h5, h6 {
+      font-family: "Montserrat", sans-serif;
+    }
+    .w3-row-padding img {
+      margin-bottom: 12px;
+    }
+    .w3-sidebar {
+      width: 250px;
+      background: #222;
+    }
+    #main {
+      margin-left: 120px;
+    }
+    @media only screen and (max-width: 600px) {
+      #main {
+        margin-left: 0;
+      }
+    }
+    .certificates {
+      margin-top: 20px;
+    }
+    .certificate-item {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #333;
+      border-radius: 5px;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+    .certificate-item img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    .certificate-link {
+      color: #4CAF50;
+      text-decoration: none;
+      margin-left: auto;
+    }
+    .certificate-link:hover {
+      text-decoration: underline;
+    }
+    .project-card img:hover {
+      opacity: 0.85;
+      transition: 0.3s ease-in-out;
+    }
+  </style>
 </head>
+
 <body class="w3-black">
 
+
+<!-- Sidebar -->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
   <div class="w3-bar-item w3-button w3-padding-large w3-black">
-    <img src="https://github.com/NadaMostafaa/NadaMostafa.github.io/blob/main/Nada.jpeg?raw=true" alt="avatar" style="width: 140px; height: 140px; border-radius: 80%;">
+    <img src="https://github.com/NadaMostafaa/NadaMostafa.github.io/blob/main/Nada.jpeg?raw=true" alt="Nada Mostafa Avatar" style="width: 140px; height: 140px; border-radius: 80%;">
   </div>
   <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
     <i class="fa fa-home w3-xxlarge"></i>
@@ -41,31 +80,26 @@ body, h1, h2, h3, h4, h5, h6 {font-family: "Montserrat", sans-serif}
   </a>
   <a href="#projects" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-eye w3-xxlarge"></i>
-    <p>PROJECTS</p>   
-
+    <p>PROJECTS</p>
   </a>
-  <a href="#resume"   
- class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+  <a href="#resume" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-folder w3-xxlarge"></i>
     <p>RESUME</p>
   </a>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>   
-
+    <i class="fa fa-envelope w3-xxlarge"></i>
     <p>CONTACT</p>
   </a>
 </nav>
-  
-<!-- Navbar on small screens (Hidden on medium and large screens) -->
+
+<!-- Top Navbar (Mobile) -->
 <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-        <img src="https://github.com/NadaMostafaa/NadaMostafa.github.io/blob/main/Nada.jpeg?raw=true" alt="boy" class="w3-image" width="992" height="1108">
-    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-    <a href="#resume" class="w3-bar-item w3-button" style="width:25% !important">RESUME</a>
-    <a href="#projects" class="w3-bar-item w3-button" style="width:25% !important">PROJECTS</a>
-    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
-
+    <a href="#" class="w3-bar-item w3-button" style="width:20% !important">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button" style="width:20% !important">ABOUT</a>
+    <a href="#projects" class="w3-bar-item w3-button" style="width:20% !important">PROJECTS</a>
+    <a href="#resume" class="w3-bar-item w3-button" style="width:20% !important">RESUME</a>
+    <a href="#contact" class="w3-bar-item w3-button" style="width:20% !important">CONTACT</a>
   </div>
 </div>
 
@@ -74,7 +108,7 @@ body, h1, h2, h3, h4, h5, h6 {font-family: "Montserrat", sans-serif}
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
     <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Nada Mostafa</h1>
-    <h2>Data Scientist | Master's Student</h2>
+    <h2>Data Scientist | Master's Student in Data Science</h2>
   </header>
 
   <!-- About Section -->
@@ -219,25 +253,18 @@ body, h1, h2, h3, h4, h5, h6 {font-family: "Montserrat", sans-serif}
     <i class="fa fa-eye w3-padding-64 w3-content w3-text-grey"></i> View Resume
   </a>
 </div>
-<!-- Contact and Footer Section -->
-<div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+  <!-- Contact -->
+  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
     <h2 class="w3-text-light-grey">Contact Me</h2>
     <hr style="width:200px" class="w3-opacity">
 
-    <div class="w3-section">
-        <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Cairo, Egypt</p>
-        <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Email: Nadam4943@gmail.com</p>
-        <a href="https://github.com/NadaMostafaa"><i class="fa fa-github fa-fw w3-text-white w3-xxlarge w3-margin-right"></i><br>
-    <a href="https://www.linkedin.com/in/nadamostafaali/" ><i class="fa fa-linkedin fa-fw w3-text-white w3-xxlarge w3-margin-right"></i></a>
+    <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Cairo, Egypt</p>
+    <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i>
+      <a href="mailto:Nadam4943@gmail.com" style="color: white;">Nadam4943@gmail.com</a></p>
+    <p><a href="https://github.com/NadaMostafaa" target="_blank"><i class="fa fa-github fa-fw w3-text-white w3-xxlarge w3-margin-right"></i></a></p>
+    <p><a href="https://www.linkedin.com/in/nadamostafaali/" target="_blank"><i class="fa fa-linkedin fa-fw w3-text-white w3-xxlarge w3-margin-right"></i></a></p>
+  </div>
 
-      
-
-    </div>
-    <!-- Footer Content -->
-    
-    </footer>
 </div>
-  
-
 </body>
 </html>
