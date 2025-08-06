@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nada Mostafa - Data Scientist & Master's Student</title>
     <meta name="description" content="Portfolio of Nada Mostafa - Data Scientist and Master's student showcasing projects, experience, skills, and certifications in data science, machine learning, and software development.">
-    <link rel="icon" href="https://github.com/NadaMostafaa/NadaMostafa.github.io/blob/main/N.png?raw=true" type="image/x-icon">
+    <link rel="icon" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/N-QtErNoClCNcJ1ND0w2lXuoT8tHtmUG.png" type="image/png">
     
     <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <style>
@@ -19,17 +20,18 @@
         }
 
         :root {
-            --bg-primary: #111827;
-            --bg-secondary: #1f2937;
-            --bg-tertiary: #374151;
+            --bg-primary: #000000;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --bg-card: #0f0f0f;
             --text-primary: #ffffff;
-            --text-secondary: #d1d5db;
-            --text-muted: #9ca3af;
+            --text-secondary: #e5e5e5;
+            --text-muted: #a3a3a3;
             --accent-primary: #3b82f6;
             --accent-secondary: #8b5cf6;
-            --border-color: #4b5563;
-            --card-bg: #1f2937;
+            --border-color: #333333;
             --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         html {
@@ -47,6 +49,7 @@
         /* RTL Support */
         .rtl {
             direction: rtl;
+            font-family: 'Amiri', 'Inter', sans-serif;
         }
 
         .rtl .nav-links {
@@ -57,6 +60,39 @@
             text-align: right;
         }
 
+        .rtl .about-content {
+            text-align: right;
+        }
+
+        .rtl .section-header {
+            text-align: right;
+        }
+
+        .rtl .contact-info-section h3 {
+            text-align: right;
+        }
+
+        .rtl .skills-section h3 {
+            text-align: right;
+        }
+
+        .rtl .skill-name {
+            flex-direction: row-reverse;
+        }
+
+        .rtl .contact-item {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .rtl .experience-header {
+            flex-direction: row-reverse;
+        }
+
+        .rtl .hero-buttons {
+            flex-direction: row-reverse;
+        }
+
         /* Navigation */
         .navbar {
             position: fixed;
@@ -64,10 +100,11 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(17, 24, 39, 0.95);
+            background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             transition: all 0.3s ease;
+            box-shadow: var(--shadow);
         }
 
         .nav-container {
@@ -83,7 +120,7 @@
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
             font-weight: 700;
             font-size: 1.25rem;
             opacity: 0;
@@ -93,13 +130,8 @@
         .nav-logo {
             width: 2.5rem;
             height: 2.5rem;
-            background: var(--gradient);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.125rem;
+            object-fit: cover;
         }
 
         .nav-links {
@@ -148,6 +180,7 @@
 
         .lang-toggle:hover {
             background: var(--bg-tertiary);
+            border-color: var(--accent-primary);
         }
 
         /* Mobile Menu */
@@ -160,6 +193,7 @@
             background: var(--bg-primary);
             border-bottom: 1px solid var(--border-color);
             padding: 1rem;
+            box-shadow: var(--shadow);
         }
 
         .mobile-nav-links {
@@ -191,12 +225,6 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
             background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
                         radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
         }
@@ -217,6 +245,7 @@
             border: 4px solid rgba(59, 130, 246, 0.5);
             opacity: 0;
             animation: fadeInUp 1s ease 0.2s forwards;
+            box-shadow: var(--shadow);
         }
 
         .hero-greeting {
@@ -276,6 +305,7 @@
         .btn-primary {
             background: var(--gradient);
             color: white;
+            box-shadow: var(--shadow);
         }
 
         .btn-primary:hover {
@@ -291,6 +321,7 @@
 
         .btn-outline:hover {
             background: var(--bg-secondary);
+            border-color: var(--accent-primary);
         }
 
         /* Section Styles */
@@ -300,7 +331,7 @@
         }
 
         .section-alt {
-            background: rgba(31, 41, 55, 0.5);
+            background: var(--bg-secondary);
         }
 
         .container {
@@ -336,64 +367,111 @@
             border-radius: 2px;
         }
 
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+        /* About Section - Single Column */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .about-text {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             color: var(--text-secondary);
             line-height: 1.8;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
         .contact-info {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            gap: 0.75rem;
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            background: var(--bg-card);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .contact-info:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .contact-info i {
+            color: var(--accent-primary);
+            font-size: 1.25rem;
+        }
+
+        .skills-section {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .skills-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
         .skill-item {
-            margin-bottom: 1.5rem;
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
             opacity: 0;
-            transform: translateX(20px);
+            transform: translateY(20px);
             transition: all 0.6s ease;
         }
 
         .skill-item.animate {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0);
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
         }
 
         .skill-header {
             display: flex;
             align-items: center;
-            justify-content: between;
-            margin-bottom: 0.5rem;
+            justify-content: space-between;
+            margin-bottom: 1rem;
         }
 
         .skill-name {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-weight: 500;
+            gap: 0.75rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .skill-name i {
+            color: var(--accent-primary);
+            font-size: 1.25rem;
         }
 
         .skill-percentage {
-            margin-left: auto;
             color: var(--text-muted);
             font-size: 0.875rem;
+            font-weight: 600;
         }
 
         .skill-bar {
@@ -460,14 +538,16 @@
             justify-content: center;
             color: white;
             font-size: 0.875rem;
+            box-shadow: var(--shadow);
         }
 
         .experience-card {
-            background: var(--card-bg);
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 0.75rem;
             padding: 1.5rem;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow);
         }
 
         .experience-card:hover {
@@ -498,12 +578,13 @@
         .experience-badge {
             background: var(--bg-tertiary);
             color: var(--text-secondary);
-            padding: 0.25rem 0.75rem;
+            padding: 0.5rem 1rem;
             border-radius: 1rem;
             font-size: 0.875rem;
             display: flex;
             align-items: center;
-            gap: 0.25rem;
+            gap: 0.5rem;
+            border: 1px solid var(--border-color);
         }
 
         .experience-description {
@@ -519,13 +600,14 @@
         }
 
         .project-card {
-            background: var(--card-bg);
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 0.75rem;
             overflow: hidden;
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(30px);
+            box-shadow: var(--shadow);
         }
 
         .project-card.animate {
@@ -612,6 +694,7 @@
             padding: 0.25rem 0.75rem;
             border-radius: 1rem;
             font-size: 0.75rem;
+            border: 1px solid var(--border-color);
         }
 
         /* Certificates Section */
@@ -622,13 +705,14 @@
         }
 
         .certificate-card {
-            background: var(--card-bg);
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 0.75rem;
             padding: 1.5rem;
             transition: all 0.3s ease;
             opacity: 0;
             transform: translateY(30px);
+            box-shadow: var(--shadow);
         }
 
         .certificate-card.animate {
@@ -638,6 +722,7 @@
 
         .certificate-card:hover {
             border-color: var(--accent-primary);
+            transform: translateY(-2px);
         }
 
         .certificate-content {
@@ -703,6 +788,16 @@
             align-items: center;
             gap: 1rem;
             margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-card);
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
         }
 
         .contact-icon {
@@ -714,6 +809,7 @@
             align-items: center;
             justify-content: center;
             color: white;
+            flex-shrink: 0;
         }
 
         .contact-details h4 {
@@ -731,7 +827,7 @@
         }
 
         .resume-card {
-            background: var(--card-bg);
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
             border-radius: 0.75rem;
             padding: 2rem;
@@ -739,6 +835,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            box-shadow: var(--shadow);
         }
 
         .resume-icon {
@@ -789,15 +886,6 @@
             }
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
@@ -816,7 +904,6 @@
                 font-size: 1.25rem;
             }
 
-            .about-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -842,6 +929,23 @@
 
             .container {
                 padding: 0 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rtl .hero-buttons {
+                flex-direction: column;
+            }
+
+            .rtl .experience-header {
+                flex-direction: column;
+                align-items: flex-end;
             }
         }
 
@@ -883,7 +987,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <div class="nav-logo">N</div>
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/N-QtErNoClCNcJ1ND0w2lXuoT8tHtmUG.png" alt="Nada Mostafa Logo" class="nav-logo">
                 <span data-en="Nada Mostafa" data-ar="ندى مصطفى">Nada Mostafa</span>
             </div>
             
@@ -942,7 +1046,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section - Single Column -->
     <section id="about" class="section section-alt">
         <div class="container">
             <div class="section-header">
@@ -950,11 +1054,12 @@
                 <div class="section-divider"></div>
             </div>
             
-            <div class="about-grid">
-                <div>
-                    <p class="about-text" data-en="Master's student in Data Science with a strong foundation in data analysis, software development and teaching. Experienced in Python, SQL, Power BI, and Android development. Proven ability to communicate technical concepts clearly through my work as a teaching assistant and lecturer. Passionate about continuous learning and leveraging data to solve real-world problems." data-ar="طالبة ماجستير في علوم البيانات مع أساس قوي في تحليل البيانات وتطوير البرمجيات والتدريس. خبرة في Python و SQL و Power BI وتطوير Android. قدرة مثبتة على توصيل المفاهيم التقنية بوضوح من خلال عملي كمساعد تدريس ومحاضر. شغوفة بالتعلم المستمر واستغلال البيانات لحل المشاكل الحقيقية.">
-                        Master's student in Data Science with a strong foundation in data analysis, software development and teaching. Experienced in Python, SQL, Power BI, and Android development. Proven ability to communicate technical concepts clearly through my work as a teaching assistant and lecturer. Passionate about continuous learning and leveraging data to solve real-world problems.
-                    </p>
+            <div class="about-content">
+                <p class="about-text" data-en="Master's student in Data Science with a strong foundation in data analysis, software development and teaching. Experienced in Python, SQL, Power BI, and Android development. Proven ability to communicate technical concepts clearly through my work as a teaching assistant and lecturer. Passionate about continuous learning and leveraging data to solve real-world problems." data-ar="طالبة ماجستير في علوم البيانات مع أساس قوي في تحليل البيانات وتطوير البرمجيات والتدريس. خبرة في Python و SQL و Power BI وتطوير Android. قدرة مثبتة على توصيل المفاهيم التقنية بوضوح من خلال عملي كمساعد تدريس ومحاضر. شغوفة بالتعلم المستمر واستغلال البيانات لحل المشاكل الحقيقية.">
+                    Master's student in Data Science with a strong foundation in data analysis, software development and teaching. Experienced in Python, SQL, Power BI, and Android development. Proven ability to communicate technical concepts clearly through my work as a teaching assistant and lecturer. Passionate about continuous learning and leveraging data to solve real-world problems.
+                </p>
+                
+                <div class="contact-info-grid">
                     <div class="contact-info">
                         <i class="fas fa-map-marker-alt"></i>
                         <span data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</span>
@@ -967,7 +1072,7 @@
                 
                 <div class="skills-section">
                     <h3 data-en="My Skills" data-ar="مهاراتي">My Skills</h3>
-                    <div class="skills-list">
+                    <div class="skills-grid">
                         <div class="skill-item">
                             <div class="skill-header">
                                 <div class="skill-name">
@@ -1067,8 +1172,8 @@
                     <div class="experience-card">
                         <div class="experience-header">
                             <div>
-                                <h3 class="experience-title">Business Intelligence Specialist</h3>
-                                <p class="experience-company">Exology • Full Time</p>
+                                <h3 class="experience-title" data-en="Business Intelligence Specialist" data-ar="أخصائي ذكاء الأعمال">Business Intelligence Specialist</h3>
+                                <p class="experience-company" data-en="Exology • Full Time" data-ar="Exology • دوام كامل">Exology • Full Time</p>
                             </div>
                             <div class="experience-badge">
                                 <i class="fas fa-calendar"></i>
@@ -1088,8 +1193,8 @@
                     <div class="experience-card">
                         <div class="experience-header">
                             <div>
-                                <h3 class="experience-title">Lecturer</h3>
-                                <p class="experience-company">Ustudy • Freelance</p>
+                                <h3 class="experience-title" data-en="Lecturer" data-ar="محاضر">Lecturer</h3>
+                                <p class="experience-company" data-en="Ustudy • Freelance" data-ar="Ustudy • عمل حر">Ustudy • Freelance</p>
                             </div>
                             <div class="experience-badge">
                                 <i class="fas fa-calendar"></i>
@@ -1109,15 +1214,15 @@
                     <div class="experience-card">
                         <div class="experience-header">
                             <div>
-                                <h3 class="experience-title">DEMI Coding Instructor</h3>
-                                <p class="experience-company">Ischool • Remote</p>
+                                <h3 class="experience-title" data-en="DEMI Coding Instructor" data-ar="مدرب برمجة DEMI">DEMI Coding Instructor</h3>
+                                <p class="experience-company" data-en="Ischool • Remote" data-ar="Ischool • عن بُعد">Ischool • Remote</p>
                             </div>
                             <div class="experience-badge">
                                 <i class="fas fa-calendar"></i>
-                                <span>Oct 2024 - Dec 2024</span>
+                                <span data-en="Oct 2024 - Dec 2024" data-ar="أكتوبر 2024 - ديسمبر 2024">Oct 2024 - Dec 2024</span>
                             </div>
                         </div>
-                        <p class="experience-description" data-en="Guide young learners on a coding journey in collaboration with the MCIT." data-ar="توجيه المتعلمين الصغار في رحلة البرمجة بالتعاون مع وزارة الاتصالات.">
+                        <p class="experience-description" data-en="Guide young learners on a coding journey in collaboration with the MCIT." data-ar="توجيه المتعلمين الصغار في رحلة البرمجة بالتعاون مع وزارة الاتصالات وتكنولوجيا المعلومات.">
                             Guide young learners on a coding journey in collaboration with the MCIT.
                         </p>
                     </div>
@@ -1130,12 +1235,12 @@
                     <div class="experience-card">
                         <div class="experience-header">
                             <div>
-                                <h3 class="experience-title">Teaching Assistant</h3>
-                                <p class="experience-company">Canadian International College (CIC) • Full Time</p>
+                                <h3 class="experience-title" data-en="Teaching Assistant" data-ar="مساعد تدريس">Teaching Assistant</h3>
+                                <p class="experience-company" data-en="Canadian International College (CIC) • Full Time" data-ar="الكلية الكندية الدولية • دوام كامل">Canadian International College (CIC) • Full Time</p>
                             </div>
                             <div class="experience-badge">
                                 <i class="fas fa-calendar"></i>
-                                <span>Oct 2023 - July 2024</span>
+                                <span data-en="Oct 2023 - July 2024" data-ar="أكتوبر 2023 - يوليو 2024">Oct 2023 - July 2024</span>
                             </div>
                         </div>
                         <p class="experience-description" data-en="Supported computer science students in understanding programming languages and data structures. Delivered lab sessions, provided academic advising, and conducted one-on-one student mentoring." data-ar="دعم طلاب علوم الحاسوب في فهم لغات البرمجة وهياكل البيانات. تقديم جلسات المختبر والإرشاد الأكاديمي والتوجيه الفردي للطلاب.">
@@ -1151,12 +1256,12 @@
                     <div class="experience-card">
                         <div class="experience-header">
                             <div>
-                                <h3 class="experience-title">Software Engineer Intern</h3>
-                                <p class="experience-company">E-Shire Technology • Remote</p>
+                                <h3 class="experience-title" data-en="Software Engineer Intern" data-ar="متدرب مهندس برمجيات">Software Engineer Intern</h3>
+                                <p class="experience-company" data-en="E-Shire Technology • Remote" data-ar="E-Shire Technology • عن بُعد">E-Shire Technology • Remote</p>
                             </div>
                             <div class="experience-badge">
                                 <i class="fas fa-calendar"></i>
-                                <span>Oct 2023 - Nov 2023</span>
+                                <span data-en="Oct 2023 - Nov 2023" data-ar="أكتوبر 2023 - نوفمبر 2023">Oct 2023 - Nov 2023</span>
                             </div>
                         </div>
                         <p class="experience-description" data-en="Responsible for developing applications that meet the highest quality standards." data-ar="مسؤولة عن تطوير التطبيقات التي تلبي أعلى معايير الجودة.">
@@ -1187,7 +1292,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Brain Tumor Detection</h3>
+                        <h3 class="project-title" data-en="Brain Tumor Detection" data-ar="اكتشاف أورام الدماغ">Brain Tumor Detection</h3>
                         <p class="project-description" data-en="Deep learning model for medical image analysis using CNN to detect brain tumors with high accuracy." data-ar="نموذج تعلم عميق لتحليل الصور الطبية باستخدام الشبكات العصبية التطبيقية لاكتشاف أورام الدماغ بدقة عالية.">
                             Deep learning model for medical image analysis using CNN to detect brain tumors with high accuracy.
                         </p>
@@ -1210,7 +1315,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Walmart Sales Analysis</h3>
+                        <h3 class="project-title" data-en="Walmart Sales Analysis" data-ar="تحليل مبيعات وول مارت">Walmart Sales Analysis</h3>
                         <p class="project-description" data-en="Comprehensive sales data analysis and forecasting using statistical methods and machine learning." data-ar="تحليل شامل لبيانات المبيعات والتنبؤ باستخدام الطرق الإحصائية وتعلم الآلة.">
                             Comprehensive sales data analysis and forecasting using statistical methods and machine learning.
                         </p>
@@ -1233,7 +1338,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Movie Data Analytics</h3>
+                        <h3 class="project-title" data-en="Movie Data Analytics" data-ar="تحليل بيانات الأفلام">Movie Data Analytics</h3>
                         <p class="project-description" data-en="Data visualization and analysis of movie industry trends, ratings, and box office performance." data-ar="تصور البيانات وتحليل اتجاهات صناعة السينما والتقييمات وأداء شباك التذاكر.">
                             Data visualization and analysis of movie industry trends, ratings, and box office performance.
                         </p>
@@ -1256,7 +1361,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Agricultural Predictive Modeling</h3>
+                        <h3 class="project-title" data-en="Agricultural Predictive Modeling" data-ar="النمذجة التنبؤية الزراعية">Agricultural Predictive Modeling</h3>
                         <p class="project-description" data-en="Machine learning models to predict crop yields and optimize agricultural decisions." data-ar="نماذج تعلم الآلة للتنبؤ بإنتاجية المحاصيل وتحسين القرارات الزراعية.">
                             Machine learning models to predict crop yields and optimize agricultural decisions.
                         </p>
@@ -1279,7 +1384,7 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Credit Card Fraud Detection</h3>
+                        <h3 class="project-title" data-en="Credit Card Fraud Detection" data-ar="اكتشاف احتيال بطاقات الائتمان">Credit Card Fraud Detection</h3>
                         <p class="project-description" data-en="Advanced anomaly detection system to identify fraudulent credit card transactions." data-ar="نظام متقدم لاكتشاف الشذوذ لتحديد معاملات بطاقات الائتمان الاحتيالية.">
                             Advanced anomaly detection system to identify fraudulent credit card transactions.
                         </p>
@@ -1308,7 +1413,7 @@
                     <div class="certificate-content">
                         <img src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_200_200/company-logo_200_200/0/1723593046388/udemy_logo?e=2147483647&v=beta&t=_tl_e0tunbg9SkCl3nXHQEaQu4FlCGi4UU2chO9yBRs" alt="Udemy" class="certificate-logo">
                         <div class="certificate-info">
-                            <h3 class="certificate-title">Python For Data Science</h3>
+                            <h3 class="certificate-title" data-en="Python For Data Science" data-ar="Python لعلوم البيانات">Python For Data Science</h3>
                             <p class="certificate-issuer">Udemy</p>
                             <a href="https://www.udemy.com/certificate/UC-5a6925e9-314d-41f4-bbd9-1d5de0778b2a/" target="_blank" class="certificate-link">
                                 <i class="fas fa-award"></i>
@@ -1322,7 +1427,7 @@
                     <div class="certificate-content">
                         <img src="https://play-lh.googleusercontent.com/zIO-uuTBjFigUIswv_h9S0-wVIkno_obwannvzr7NrXbh_MXL_khqV7gEqBly6KXEi4" alt="DataCamp" class="certificate-logo">
                         <div class="certificate-info">
-                            <h3 class="certificate-title">Machine Learning Fundamentals with Python</h3>
+                            <h3 class="certificate-title" data-en="Machine Learning Fundamentals with Python" data-ar="أساسيات تعلم الآلة مع Python">Machine Learning Fundamentals with Python</h3>
                             <p class="certificate-issuer">DataCamp</p>
                             <a href="https://www.datacamp.com/statement-of-accomplishment/track/72e5d9ab53b5cf710472e9fcc7930ec9cf9e6823?raw=1" target="_blank" class="certificate-link">
                                 <i class="fas fa-award"></i>
@@ -1336,7 +1441,7 @@
                     <div class="certificate-content">
                         <img src="https://play-lh.googleusercontent.com/zIO-uuTBjFigUIswv_h9S0-wVIkno_obwannvzr7NrXbh_MXL_khqV7gEqBly6KXEi4" alt="DataCamp" class="certificate-logo">
                         <div class="certificate-info">
-                            <h3 class="certificate-title">Deep Learning in Python</h3>
+                            <h3 class="certificate-title" data-en="Deep Learning in Python" data-ar="التعلم العميق في Python">Deep Learning in Python</h3>
                             <p class="certificate-issuer">DataCamp</p>
                             <a href="https://www.datacamp.com/statement-of-accomplishment/track/68569ea309b8c0c2ba87a75b7577efc86fa84a70?raw=1" target="_blank" class="certificate-link">
                                 <i class="fas fa-award"></i>
@@ -1350,7 +1455,7 @@
                     <div class="certificate-content">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD6asIVHGu9jD0jvuASuTjYkEU9og2AP1FnQ&s" alt="Udacity" class="certificate-logo">
                         <div class="certificate-info">
-                            <h3 class="certificate-title">Advanced Android Development NANODEGREE</h3>
+                            <h3 class="certificate-title" data-en="Advanced Android Development NANODEGREE" data-ar="شهادة تطوير Android المتقدمة">Advanced Android Development NANODEGREE</h3>
                             <p class="certificate-issuer">Udacity</p>
                             <a href="https://www.udacity.com/certificate/FJRHEGJA" target="_blank" class="certificate-link">
                                 <i class="fas fa-award"></i>
@@ -1364,7 +1469,7 @@
                     <div class="certificate-content">
                         <img src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_200_200/company-logo_200_200/0/1723593046388/udemy_logo?e=2147483647&v=beta&t=_tl_e0tunbg9SkCl3nXHQEaQu4FlCGi4UU2chO9yBRs" alt="Udemy" class="certificate-logo">
                         <div class="certificate-info">
-                            <h3 class="certificate-title">Web Development Bootcamp</h3>
+                            <h3 class="certificate-title" data-en="Web Development Bootcamp" data-ar="معسكر تطوير الويب">Web Development Bootcamp</h3>
                             <p class="certificate-issuer">Udemy</p>
                             <a href="https://www.udemy.com/certificate/UC-106c298f-c24a-4fd0-b6bd-10b92463a0ea/" target="_blank" class="certificate-link">
                                 <i class="fas fa-award"></i>
@@ -1378,8 +1483,8 @@
                     <div class="certificate-content">
                         <img src="https://media.licdn.com/dms/image/v2/C560BAQGK3uuhQer46g/company-logo_200_200/company-logo_200_200/0/1631351788797?e=2147483647&v=beta&t=oGL-yHbzSy8MbCU-d4CfsELlfgQP3KX_fm5F6wcaGxA" alt="ITI" class="certificate-logo">
                         <div class="certificate-info">
-                            <h3 class="certificate-title">UI/UX Design</h3>
-                            <p class="certificate-issuer">Information Technology Institute (ITI)</p>
+                            <h3 class="certificate-title" data-en="UI/UX Design" data-ar="تصميم واجهة وتجربة المستخدم">UI/UX Design</h3>
+                            <p class="certificate-issuer" data-en="Information Technology Institute (ITI)" data-ar="معهد تكنولوجيا المعلومات">Information Technology Institute (ITI)</p>
                             <a href="https://drive.google.com/file/d/1bWYxW-e57ZPWOLPG6O_orXv60A8dOEtq/view" target="_blank" class="certificate-link">
                                 <i class="fas fa-award"></i>
                                 <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
@@ -1598,9 +1703,9 @@
             window.addEventListener('scroll', () => {
                 const navbar = document.querySelector('.navbar');
                 if (window.scrollY > 50) {
-                    navbar.style.background = 'rgba(17, 24, 39, 0.98)';
+                    navbar.style.background = 'rgba(0, 0, 0, 0.98)';
                 } else {
-                    navbar.style.background = 'rgba(17, 24, 39, 0.95)';
+                    navbar.style.background = 'rgba(0, 0, 0, 0.95)';
                 }
                 
                 updateActiveNavLink();
@@ -1642,8 +1747,8 @@
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
                 
-                const rotateX = (y - centerY) / centerY * 5;
-                const rotateY = (centerX - x) / centerX * 5;
+                const rotateX = (y - centerY) / centerY * 2;
+                const rotateY = (centerX - x) / centerX * 2;
                 
                 hero.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
             }
@@ -1683,3 +1788,5 @@
     </script>
 </body>
 </html>
+
+The portfolio now has a sleek black design that matches your logo, proper Arabic text structure, and a clean single-column about section that looks professional and modern!
