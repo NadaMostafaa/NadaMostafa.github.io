@@ -27,11 +27,26 @@
             --text-primary: #ffffff;
             --text-secondary: #e5e5e5;
             --text-muted: #a3a3a3;
-            --accent-primary: #3b82f6;
-            --accent-secondary: #8b5cf6;
+            --accent-primary: #ffffff;
+            --accent-secondary: #f5f5f5;
             --border-color: #333333;
-            --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --gradient: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #e9ecef;
+            --bg-card: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --text-muted: #666666;
+            --accent-primary: #000000;
+            --accent-secondary: #333333;
+            --border-color: #dee2e6;
+            --gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         html {
@@ -44,6 +59,7 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: all 0.3s ease;
         }
 
         /* RTL Support */
@@ -53,6 +69,10 @@
         }
 
         .rtl .nav-links {
+            flex-direction: row-reverse;
+        }
+
+        .rtl .nav-container {
             flex-direction: row-reverse;
         }
 
@@ -93,6 +113,37 @@
             flex-direction: row-reverse;
         }
 
+        .rtl .timeline-item {
+            padding-right: 3rem;
+            padding-left: 0;
+        }
+
+        .rtl .timeline-item::before {
+            right: 1rem;
+            left: auto;
+        }
+
+        .rtl .timeline-icon {
+            right: 0;
+            left: auto;
+        }
+
+        .rtl .certificate-content {
+            flex-direction: row-reverse;
+        }
+
+        .rtl .project-tags {
+            justify-content: flex-end;
+        }
+
+        .rtl .contact-details {
+            text-align: right;
+        }
+
+        .rtl .resume-card {
+            text-align: right;
+        }
+
         /* Navigation */
         .navbar {
             position: fixed;
@@ -105,6 +156,10 @@
             border-bottom: 1px solid var(--border-color);
             transition: all 0.3s ease;
             box-shadow: var(--shadow);
+        }
+
+        [data-theme="light"] .navbar {
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .nav-container {
@@ -165,6 +220,13 @@
             border-radius: 1px;
         }
 
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle,
         .lang-toggle {
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
@@ -176,8 +238,10 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 0.875rem;
         }
 
+        .theme-toggle:hover,
         .lang-toggle:hover {
             background: var(--bg-tertiary);
             border-color: var(--accent-primary);
@@ -225,8 +289,13 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(245, 245, 245, 0.1) 0%, transparent 50%);
+        }
+
+        [data-theme="light"] .hero {
+            background: radial-gradient(circle at 30% 20%, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(51, 51, 51, 0.05) 0%, transparent 50%);
         }
 
         .hero-content {
@@ -242,10 +311,14 @@
             height: 8rem;
             border-radius: 50%;
             margin: 0 auto 2rem;
-            border: 4px solid rgba(59, 130, 246, 0.5);
+            border: 4px solid rgba(255, 255, 255, 0.5);
             opacity: 0;
             animation: fadeInUp 1s ease 0.2s forwards;
             box-shadow: var(--shadow);
+        }
+
+        [data-theme="light"] .hero-avatar {
+            border-color: rgba(0, 0, 0, 0.2);
         }
 
         .hero-greeting {
@@ -304,13 +377,17 @@
 
         .btn-primary {
             background: var(--gradient);
-            color: white;
+            color: var(--bg-primary);
             box-shadow: var(--shadow);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        [data-theme="light"] .btn-primary:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .btn-outline {
@@ -382,9 +459,8 @@
         }
 
         .contact-info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            display: flex;
+            justify-content: center;
             margin-bottom: 3rem;
         }
 
@@ -395,7 +471,7 @@
             gap: 0.75rem;
             color: var(--text-muted);
             background: var(--bg-card);
-            padding: 1rem;
+            padding: 1rem 2rem;
             border-radius: 0.75rem;
             border: 1px solid var(--border-color);
             transition: all 0.3s ease;
@@ -412,7 +488,7 @@
         }
 
         .skills-section {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -422,9 +498,9 @@
             text-align: center;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        .skills-list {
+            display: flex;
+            flex-direction: column;
             gap: 1.5rem;
         }
 
@@ -536,7 +612,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--bg-primary);
             font-size: 0.875rem;
             box-shadow: var(--shadow);
         }
@@ -655,7 +731,7 @@
 
         .project-link {
             background: var(--accent-primary);
-            color: white;
+            color: var(--bg-primary);
             padding: 0.5rem;
             border-radius: 0.5rem;
             text-decoration: none;
@@ -770,12 +846,40 @@
         }
 
         /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: 1000px;
+        .contact-content {
+            max-width: 800px;
             margin: 0 auto;
+            text-align: center;
+        }
+
+        .resume-section {
+            margin-bottom: 3rem;
+        }
+
+        .resume-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .resume-icon {
+            font-size: 4rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .resume-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .resume-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
         }
 
         .contact-info-section h3 {
@@ -783,11 +887,16 @@
             margin-bottom: 1.5rem;
         }
 
+        .contact-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
         .contact-item {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1.5rem;
             padding: 1rem;
             background: var(--bg-card);
             border-radius: 0.75rem;
@@ -808,7 +917,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--bg-primary);
             flex-shrink: 0;
         }
 
@@ -824,34 +933,6 @@
 
         .contact-details a:hover {
             text-decoration: underline;
-        }
-
-        .resume-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 0.75rem;
-            padding: 2rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            box-shadow: var(--shadow);
-        }
-
-        .resume-icon {
-            font-size: 4rem;
-            color: var(--accent-primary);
-            margin-bottom: 1rem;
-        }
-
-        .resume-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .resume-card p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
         }
 
         /* Footer */
@@ -896,17 +977,26 @@
                 display: flex;
             }
 
+            .nav-controls {
+                gap: 0.5rem;
+            }
+
+            .theme-toggle,
+            .lang-toggle {
+                padding: 0.5rem;
+            }
+
+            .theme-toggle span,
+            .lang-toggle span {
+                display: none;
+            }
+
             .hero-greeting {
                 font-size: 2rem;
             }
 
             .hero-title {
                 font-size: 1.25rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
             }
 
             .projects-grid {
@@ -931,11 +1021,7 @@
                 padding: 0 1rem;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info-grid {
+            .contact-items {
                 grid-template-columns: 1fr;
             }
 
@@ -967,6 +1053,11 @@
                 height: 1.5rem;
                 font-size: 0.75rem;
             }
+
+            .rtl .timeline-item {
+                padding-right: 2rem;
+                padding-left: 0;
+            }
         }
 
         /* Loading Animation */
@@ -988,7 +1079,7 @@
         <div class="nav-container">
             <div class="nav-brand">
                 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/N-QtErNoClCNcJ1ND0w2lXuoT8tHtmUG.png" alt="Nada Mostafa Logo" class="nav-logo">
-                <span data-en="Nada Mostafa" data-ar="ندى مصطفى">Nada Mostafa</span>
+                <span data-en="Nada Mostafa" data-ar="ندا مصطفى">Nada Mostafa</span>
             </div>
             
             <ul class="nav-links">
@@ -1000,10 +1091,16 @@
                 <li><a href="#contact" class="nav-link" data-en="CONTACT" data-ar="التواصل">CONTACT</a></li>
             </ul>
 
-            <button class="lang-toggle" onclick="toggleLanguage()">
-                <i class="fas fa-language"></i>
-                <span id="lang-text">العربية</span>
-            </button>
+            <div class="nav-controls">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-sun" id="theme-icon"></i>
+                    <span id="theme-text" data-en="Light" data-ar="فاتح">Light</span>
+                </button>
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <i class="fas fa-language"></i>
+                    <span id="lang-text">العربية</span>
+                </button>
+            </div>
 
             <div class="hamburger" onclick="toggleMobileMenu()">
                 <span></span>
@@ -1030,7 +1127,7 @@
             <img src="https://github.com/NadaMostafaa/NadaMostafa.github.io/blob/main/Nada.jpeg?raw=true" alt="Nada Mostafa" class="hero-avatar">
             <h1 class="hero-greeting">
                 <span data-en="I'm" data-ar="أنا">I'm</span>
-                <span class="hero-name" data-en="Nada Mostafa" data-ar="ندى مصطفى">Nada Mostafa</span>
+                <span class="hero-name" data-en="Nada Mostafa" data-ar="ندا مصطفى">Nada Mostafa</span>
             </h1>
             <h2 class="hero-title" data-en="Data Scientist | Master's Student in Data Science" data-ar="عالمة بيانات | طالبة ماجستير في علوم البيانات">Data Scientist | Master's Student in Data Science</h2>
             <p class="hero-subtitle" data-en="Transforming data into actionable insights" data-ar="تحويل البيانات إلى رؤى قابلة للتنفيذ">Transforming data into actionable insights</p>
@@ -1064,15 +1161,11 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <span data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</span>
                     </div>
-                    <div class="contact-info">
-                        <i class="fas fa-phone"></i>
-                        <span>(+20) 1143238354</span>
-                    </div>
                 </div>
                 
                 <div class="skills-section">
                     <h3 data-en="My Skills" data-ar="مهاراتي">My Skills</h3>
-                    <div class="skills-grid">
+                    <div class="skills-list">
                         <div class="skill-item">
                             <div class="skill-header">
                                 <div class="skill-name">
@@ -1505,63 +1598,69 @@
                 <div class="section-divider"></div>
             </div>
             
-            <div class="contact-grid">
+            <div class="contact-content">
+                <!-- Resume Section First -->
+                <div class="resume-section">
+                    <div class="resume-card">
+                        <div class="resume-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 data-en="Download My Resume" data-ar="تحميل سيرتي الذاتية">Download My Resume</h3>
+                        <p data-en="Get a detailed overview of my experience, skills, and achievements." data-ar="احصل على نظرة عامة مفصلة عن خبرتي ومهاراتي وإنجازاتي.">
+                            Get a detailed overview of my experience, skills, and achievements.
+                        </p>
+                        <a href="https://drive.google.com/file/d/1FxHyc7TUNNU7jNCPmiDJbU4QAgQtg55e/view?usp=sharing" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            <span data-en="Download Resume" data-ar="تحميل السيرة الذاتية">Download Resume</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Social Media Links -->
                 <div class="contact-info-section">
                     <h3 data-en="Let's Connect" data-ar="لنتواصل">Let's Connect</h3>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-en="Email" data-ar="البريد الإلكتروني">Email</h4>
+                                <a href="mailto:Nadam4943@gmail.com">Nadam4943@gmail.com</a>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4 data-en="Email" data-ar="البريد الإلكتروني">Email</h4>
-                            <a href="mailto:Nadam4943@gmail.com">Nadam4943@gmail.com</a>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/NadaMostafaa" target="_blank">github.com/NadaMostafaa</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/nadamostafaali/" target="_blank">linkedin.com/in/nadamostafaali</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 data-en="Location" data-ar="الموقع">Location</h4>
+                                <p data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</p>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>GitHub</h4>
-                            <a href="https://github.com/NadaMostafaa" target="_blank">github.com/NadaMostafaa</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/nadamostafaali/" target="_blank">linkedin.com/in/nadamostafaali</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4 data-en="Location" data-ar="الموقع">Location</h4>
-                            <p data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="resume-card">
-                    <div class="resume-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3 data-en="Download My Resume" data-ar="تحميل سيرتي الذاتية">Download My Resume</h3>
-                    <p data-en="Get a detailed overview of my experience, skills, and achievements." data-ar="احصل على نظرة عامة مفصلة عن خبرتي ومهاراتي وإنجازاتي.">
-                        Get a detailed overview of my experience, skills, and achievements.
-                    </p>
-                    <a href="https://drive.google.com/file/d/1FxHyc7TUNNU7jNCPmiDJbU4QAgQtg55e/view?usp=sharing" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-download"></i>
-                        <span data-en="Download Resume" data-ar="تحميل السيرة الذاتية">Download Resume</span>
-                    </a>
                 </div>
             </div>
         </div>
@@ -1570,15 +1669,45 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p data-en="© 2024 Nada Mostafa. All rights reserved. Built with HTML, CSS, and JavaScript." data-ar="© 2024 ندى مصطفى. جميع الحقوق محفوظة. تم البناء باستخدام HTML و CSS و JavaScript.">
+            <p data-en="© 2024 Nada Mostafa. All rights reserved. Built with HTML, CSS, and JavaScript." data-ar="© 2024 ندا مصطفى. جميع الحقوق محفوظة. تم البناء باستخدام HTML و CSS و JavaScript.">
                 © 2024 Nada Mostafa. All rights reserved. Built with HTML, CSS, and JavaScript.
             </p>
         </div>
     </footer>
 
     <script>
-        // Language switching functionality
+        // Theme and Language switching functionality
         let currentLanguage = 'en';
+        let currentTheme = 'dark';
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            updateTheme();
+        }
+
+        function updateTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+            
+            if (currentTheme === 'light') {
+                body.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fas fa-moon';
+                themeText.setAttribute('data-en', 'Dark');
+                themeText.setAttribute('data-ar', 'داكن');
+            } else {
+                body.removeAttribute('data-theme');
+                themeIcon.className = 'fas fa-sun';
+                themeText.setAttribute('data-en', 'Light');
+                themeText.setAttribute('data-ar', 'فاتح');
+            }
+            
+            // Update theme text based on current language
+            const text = themeText.getAttribute(`data-${currentLanguage}`);
+            if (text) {
+                themeText.textContent = text;
+            }
+        }
 
         function toggleLanguage() {
             currentLanguage = currentLanguage === 'en' ? 'ar' : 'en';
@@ -1703,9 +1832,17 @@
             window.addEventListener('scroll', () => {
                 const navbar = document.querySelector('.navbar');
                 if (window.scrollY > 50) {
-                    navbar.style.background = 'rgba(0, 0, 0, 0.98)';
+                    if (currentTheme === 'light') {
+                        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                    } else {
+                        navbar.style.background = 'rgba(0, 0, 0, 0.98)';
+                    }
                 } else {
-                    navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+                    if (currentTheme === 'light') {
+                        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                    } else {
+                        navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+                    }
                 }
                 
                 updateActiveNavLink();
@@ -1718,6 +1855,7 @@
             initScrollAnimations();
             initNavbarScroll();
             updateActiveNavLink();
+            updateTheme();
             
             // Add loading animation to elements
             const loadingElements = document.querySelectorAll('.loading');
@@ -1788,5 +1926,3 @@
     </script>
 </body>
 </html>
-
-The portfolio now has a sleek black design that matches your logo, proper Arabic text structure, and a clean single-column about section that looks professional and modern!
