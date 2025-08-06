@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nada Mostafa - Data Scientist & Master's Student</title>
     <meta name="description" content="Portfolio of Nada Mostafa - Data Scientist and Master's student showcasing projects, experience, skills, and certifications in data science, machine learning, and software development.">
+    <meta name="keywords" content="Data Science, Machine Learning, Python, SQL, Power BI, Business Intelligence, Deep Learning, Analytics">
+    <meta name="author" content="Nada Mostafa">
     <link rel="icon" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/N-QtErNoClCNcJ1ND0w2lXuoT8tHtmUG.png" type="image/png">
     
     <!-- Fonts and Icons -->
@@ -144,6 +146,10 @@
             text-align: right;
         }
 
+        .rtl .filter-buttons {
+            justify-content: flex-end;
+        }
+
         /* Navigation */
         .navbar {
             position: fixed;
@@ -245,6 +251,32 @@
         .lang-toggle:hover {
             background: var(--bg-tertiary);
             border-color: var(--accent-primary);
+        }
+
+        /* Back to Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--gradient);
+            border: none;
+            border-radius: 50%;
+            padding: 0.75rem;
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+            box-shadow: var(--shadow);
+            color: var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        #back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        .rtl #back-to-top {
+            right: auto;
+            left: 2rem;
         }
 
         /* Mobile Menu */
@@ -398,6 +430,33 @@
 
         .btn-outline:hover {
             background: var(--bg-secondary);
+            border-color: var(--accent-primary);
+        }
+
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient);
+            color: var(--bg-primary);
             border-color: var(--accent-primary);
         }
 
@@ -1025,6 +1084,16 @@
                 grid-template-columns: 1fr;
             }
 
+            .filter-buttons {
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
             .rtl .hero-buttons {
                 flex-direction: column;
             }
@@ -1075,596 +1144,615 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/N-QtErNoClCNcJ1ND0w2lXuoT8tHtmUG.png" alt="Nada Mostafa Logo" class="nav-logo">
-                <span data-en="Nada Mostafa" data-ar="ندا مصطفى">Nada Mostafa</span>
-            </div>
-            
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active" data-en="HOME" data-ar="الرئيسية">HOME</a></li>
-                <li><a href="#about" class="nav-link" data-en="ABOUT" data-ar="نبذة">ABOUT</a></li>
-                <li><a href="#experience" class="nav-link" data-en="EXPERIENCE" data-ar="الخبرة">EXPERIENCE</a></li>
-                <li><a href="#projects" class="nav-link" data-en="PROJECTS" data-ar="المشاريع">PROJECTS</a></li>
-                <li><a href="#certificates" class="nav-link" data-en="CERTIFICATES" data-ar="الشهادات">CERTIFICATES</a></li>
-                <li><a href="#contact" class="nav-link" data-en="CONTACT" data-ar="التواصل">CONTACT</a></li>
-            </ul>
-
-            <div class="nav-controls">
-                <button class="theme-toggle" onclick="toggleTheme()">
-                    <i class="fas fa-sun" id="theme-icon"></i>
-                    <span id="theme-text" data-en="Light" data-ar="فاتح">Light</span>
-                </button>
-                <button class="lang-toggle" onclick="toggleLanguage()">
-                    <i class="fas fa-language"></i>
-                    <span id="lang-text">العربية</span>
-                </button>
-            </div>
-
-            <div class="hamburger" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-
-        <div class="mobile-menu" id="mobile-menu">
-            <ul class="mobile-nav-links">
-                <li><a href="#home" class="nav-link" data-en="HOME" data-ar="الرئيسية">HOME</a></li>
-                <li><a href="#about" class="nav-link" data-en="ABOUT" data-ar="نبذة">ABOUT</a></li>
-                <li><a href="#experience" class="nav-link" data-en="EXPERIENCE" data-ar="الخبرة">EXPERIENCE</a></li>
-                <li><a href="#projects" class="nav-link" data-en="PROJECTS" data-ar="المشاريع">PROJECTS</a></li>
-                <li><a href="#certificates" class="nav-link" data-en="CERTIFICATES" data-ar="الشهادات">CERTIFICATES</a></li>
-                <li><a href="#contact" class="nav-link" data-en="CONTACT" data-ar="التواصل">CONTACT</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="https://github.com/NadaMostafaa/NadaMostafa.github.io/blob/main/Nada.jpeg?raw=true" alt="Nada Mostafa" class="hero-avatar">
-            <h1 class="hero-greeting">
-                <span data-en="I'm" data-ar="أنا">I'm</span>
-                <span class="hero-name" data-en="Nada Mostafa" data-ar="ندا مصطفى">Nada Mostafa</span>
-            </h1>
-            <h2 class="hero-title" data-en="Data Scientist | Master's Student in Data Science" data-ar="عالمة بيانات | طالبة ماجستير في علوم البيانات">Data Scientist | Master's Student in Data Science</h2>
-            <p class="hero-subtitle" data-en="Transforming data into actionable insights" data-ar="تحويل البيانات إلى رؤى قابلة للتنفيذ">Transforming data into actionable insights</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <span data-en="View My Work" data-ar="عرض أعمالي">View My Work</span>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <a href="#contact" class="btn btn-outline">
-                    <span data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section - Single Column -->
-    <section id="about" class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-en="Data Science Innovator" data-ar="مبتكرة في علوم البيانات">Data Science Innovator</h2>
-                <div class="section-divider"></div>
-            </div>
-            
-            <div class="about-content">
-                <p class="about-text" data-en="Master's student in Data Science with a strong foundation in data analysis, software development and teaching. Experienced in Python, SQL, Power BI, and Android development. Proven ability to communicate technical concepts clearly through my work as a teaching assistant and lecturer. Passionate about continuous learning and leveraging data to solve real-world problems." data-ar="طالبة ماجستير في علوم البيانات مع أساس قوي في تحليل البيانات وتطوير البرمجيات والتدريس. خبرة في Python و SQL و Power BI وتطوير Android. قدرة مثبتة على توصيل المفاهيم التقنية بوضوح من خلال عملي كمساعد تدريس ومحاضر. شغوفة بالتعلم المستمر واستغلال البيانات لحل المشاكل الحقيقية.">
-                    Master's student in Data Science with a strong foundation in data analysis, software development and teaching. Experienced in Python, SQL, Power BI, and Android development. Proven ability to communicate technical concepts clearly through my work as a teaching assistant and lecturer. Passionate about continuous learning and leveraging data to solve real-world problems.
-                </p>
-                
-                <div class="contact-info-grid">
-                    <div class="contact-info">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</span>
-                    </div>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/N-QtErNoClCNcJ1ND0w2lXuoT8tHtmUG.png" alt="Nada Mostafa Professional Logo" class="nav-logo" loading="lazy">
+                    <span data-en="Nada Mostafa" data-ar="ندا مصطفى">Nada Mostafa</span>
                 </div>
                 
-                <div class="skills-section">
-                    <h3 data-en="My Skills" data-ar="مهاراتي">My Skills</h3>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <div class="skill-name">
-                                    <i class="fas fa-chart-bar"></i>
-                                    <span data-en="Data Analytics" data-ar="تحليل البيانات">Data Analytics</span>
-                                </div>
-                                <span class="skill-percentage">95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="95"></div>
-                            </div>
-                        </div>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="#home" class="nav-link active" data-en="HOME" data-ar="الرئيسية" role="menuitem">HOME</a></li>
+                    <li role="none"><a href="#about" class="nav-link" data-en="ABOUT" data-ar="نبذة" role="menuitem">ABOUT</a></li>
+                    <li role="none"><a href="#experience" class="nav-link" data-en="EXPERIENCE" data-ar="الخبرة" role="menuitem">EXPERIENCE</a></li>
+                    <li role="none"><a href="#projects" class="nav-link" data-en="PROJECTS" data-ar="المشاريع" role="menuitem">PROJECTS</a></li>
+                    <li role="none"><a href="#certificates" class="nav-link" data-en="CERTIFICATES" data-ar="الشهادات" role="menuitem">CERTIFICATES</a></li>
+                    <li role="none"><a href="#contact" class="nav-link" data-en="CONTACT" data-ar="التواصل" role="menuitem">CONTACT</a></li>
+                </ul>
 
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <div class="skill-name">
-                                    <i class="fas fa-graduation-cap"></i>
-                                    <span data-en="Teaching" data-ar="التدريس">Teaching</span>
-                                </div>
-                                <span class="skill-percentage">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="90"></div>
-                            </div>
-                        </div>
+                <div class="nav-controls">
+                    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i class="fas fa-sun" id="theme-icon" aria-hidden="true"></i>
+                        <span id="theme-text" data-en="Light" data-ar="فاتح">Light</span>
+                    </button>
+                    <button class="lang-toggle" onclick="toggleLanguage()" aria-label="Toggle language">
+                        <i class="fas fa-language" aria-hidden="true"></i>
+                        <span id="lang-text">العربية</span>
+                    </button>
+                </div>
 
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <div class="skill-name">
-                                    <i class="fas fa-search"></i>
-                                    <span data-en="Research" data-ar="البحث">Research</span>
-                                </div>
-                                <span class="skill-percentage">88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="88"></div>
-                            </div>
-                        </div>
+                <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
 
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <div class="skill-name">
-                                    <i class="fas fa-code"></i>
-                                    <span data-en="Programming Languages" data-ar="لغات البرمجة">Programming Languages</span>
-                                </div>
-                                <span class="skill-percentage">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="85"></div>
-                            </div>
-                        </div>
+            <div class="mobile-menu" id="mobile-menu" role="menu">
+                <ul class="mobile-nav-links">
+                    <li><a href="#home" class="nav-link" data-en="HOME" data-ar="الرئيسية" role="menuitem">HOME</a></li>
+                    <li><a href="#about" class="nav-link" data-en="ABOUT" data-ar="نبذة" role="menuitem">ABOUT</a></li>
+                    <li><a href="#experience" class="nav-link" data-en="EXPERIENCE" data-ar="الخبرة" role="menuitem">EXPERIENCE</a></li>
+                    <li><a href="#projects" class="nav-link" data-en="PROJECTS" data-ar="المشاريع" role="menuitem">PROJECTS</a></li>
+                    <li><a href="#certificates" class="nav-link" data-en="CERTIFICATES" data-ar="الشهادات" role="menuitem">CERTIFICATES</a></li>
+                    <li><a href="#contact" class="nav-link" data-en="CONTACT" data-ar="التواصل" role="menuitem">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <div class="skill-name">
-                                    <i class="fas fa-brain"></i>
-                                    <span data-en="Machine Learning" data-ar="تعلم الآلة">Machine Learning</span>
-                                </div>
-                                <span class="skill-percentage">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="80"></div>
-                            </div>
-                        </div>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Back to Top" aria-label="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <div class="skill-name">
-                                    <i class="fas fa-palette"></i>
-                                    <span data-en="UI/UX Design" data-ar="تصميم واجهات المستخدم">UI/UX Design</span>
-                                </div>
-                                <span class="skill-percentage">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="80"></div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <img src="https://github.com/NadaMostafaa/NadaMostafa.github.io/blob/main/Nada.jpeg?raw=true" alt="Nada Mostafa - Professional headshot of a data scientist and master's student" class="hero-avatar" loading="lazy">
+                <h1 class="hero-greeting">
+                    <span data-en="I'm" data-ar="أنا">I'm</span>
+                    <span class="hero-name" data-en="Nada Mostafa" data-ar="ندا مصطفى">Nada Mostafa</span>
+                </h1>
+                <h2 class="hero-title" data-en="Data Scientist | Master's Student in Data Science" data-ar="عالمة بيانات | طالبة ماجستير في علوم البيانات">Data Scientist | Master's Student in Data Science</h2>
+                <p class="hero-subtitle" data-en="Transforming data into actionable insights" data-ar="تحويل البيانات إلى رؤى قابلة للتنفيذ">Transforming data into actionable insights</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <span data-en="View My Work" data-ar="عرض أعمالي">View My Work</span>
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <span data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</span>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-en="Professional Experience" data-ar="الخبرة المهنية">Professional Experience</h2>
-                <div class="section-divider"></div>
-            </div>
-            
-            <div class="experience-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="experience-card">
-                        <div class="experience-header">
-                            <div>
-                                <h3 class="experience-title" data-en="Business Intelligence Specialist" data-ar="أخصائي ذكاء الأعمال">Business Intelligence Specialist</h3>
-                                <p class="experience-company" data-en="Exology • Full Time" data-ar="Exology • دوام كامل">Exology • Full Time</p>
-                            </div>
-                            <div class="experience-badge">
-                                <i class="fas fa-calendar"></i>
-                                <span data-en="Nov 2024 - Present" data-ar="نوفمبر 2024 - الحاضر">Nov 2024 - Present</span>
-                            </div>
-                        </div>
-                        <p class="experience-description" data-en="Analyze data, create reports and dashboards and deliver actionable insights." data-ar="تحليل البيانات وإنشاء التقارير ولوحات المعلومات وتقديم رؤى قابلة للتنفيذ.">
-                            Analyze data, create reports and dashboards and deliver actionable insights.
-                        </p>
-                    </div>
+        <!-- About Section -->
+        <section id="about" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-en="Data Science Innovator" data-ar="مبتكرة في علوم البيانات">Data Science Innovator</h2>
+                    <div class="section-divider"></div>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="experience-card">
-                        <div class="experience-header">
-                            <div>
-                                <h3 class="experience-title" data-en="Lecturer" data-ar="محاضر">Lecturer</h3>
-                                <p class="experience-company" data-en="Ustudy • Freelance" data-ar="Ustudy • عمل حر">Ustudy • Freelance</p>
-                            </div>
-                            <div class="experience-badge">
-                                <i class="fas fa-calendar"></i>
-                                <span data-en="Nov 2024 - Present" data-ar="نوفمبر 2024 - الحاضر">Nov 2024 - Present</span>
-                            </div>
-                        </div>
-                        <p class="experience-description" data-en="Support computer science students enhancing their understanding of main concepts." data-ar="دعم طلاب علوم الحاسوب وتعزيز فهمهم للمفاهيم الأساسية.">
-                            Support computer science students enhancing their understanding of main concepts.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="experience-card">
-                        <div class="experience-header">
-                            <div>
-                                <h3 class="experience-title" data-en="DEMI Coding Instructor" data-ar="مدرب برمجة DEMI">DEMI Coding Instructor</h3>
-                                <p class="experience-company" data-en="Ischool • Remote" data-ar="Ischool • عن بُعد">Ischool • Remote</p>
-                            </div>
-                            <div class="experience-badge">
-                                <i class="fas fa-calendar"></i>
-                                <span data-en="Oct 2024 - Dec 2024" data-ar="أكتوبر 2024 - ديسمبر 2024">Oct 2024 - Dec 2024</span>
-                            </div>
-                        </div>
-                        <p class="experience-description" data-en="Guide young learners on a coding journey in collaboration with the MCIT." data-ar="توجيه المتعلمين الصغار في رحلة البرمجة بالتعاون مع وزارة الاتصالات وتكنولوجيا المعلومات.">
-                            Guide young learners on a coding journey in collaboration with the MCIT.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <div class="experience-card">
-                        <div class="experience-header">
-                            <div>
-                                <h3 class="experience-title" data-en="Teaching Assistant" data-ar="مساعد تدريس">Teaching Assistant</h3>
-                                <p class="experience-company" data-en="Canadian International College (CIC) • Full Time" data-ar="الكلية الكندية الدولية • دوام كامل">Canadian International College (CIC) • Full Time</p>
-                            </div>
-                            <div class="experience-badge">
-                                <i class="fas fa-calendar"></i>
-                                <span data-en="Oct 2023 - July 2024" data-ar="أكتوبر 2023 - يوليو 2024">Oct 2023 - July 2024</span>
-                            </div>
-                        </div>
-                        <p class="experience-description" data-en="Supported computer science students in understanding programming languages and data structures. Delivered lab sessions, provided academic advising, and conducted one-on-one student mentoring." data-ar="دعم طلاب علوم الحاسوب في فهم لغات البرمجة وهياكل البيانات. تقديم جلسات المختبر والإرشاد الأكاديمي والتوجيه الفردي للطلاب.">
-                            Supported computer science students in understanding programming languages and data structures. Delivered lab sessions, provided academic advising, and conducted one-on-one student mentoring.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="experience-card">
-                        <div class="experience-header">
-                            <div>
-                                <h3 class="experience-title" data-en="Software Engineer Intern" data-ar="متدرب مهندس برمجيات">Software Engineer Intern</h3>
-                                <p class="experience-company" data-en="E-Shire Technology • Remote" data-ar="E-Shire Technology • عن بُعد">E-Shire Technology • Remote</p>
-                            </div>
-                            <div class="experience-badge">
-                                <i class="fas fa-calendar"></i>
-                                <span data-en="Oct 2023 - Nov 2023" data-ar="أكتوبر 2023 - نوفمبر 2023">Oct 2023 - Nov 2023</span>
-                            </div>
-                        </div>
-                        <p class="experience-description" data-en="Responsible for developing applications that meet the highest quality standards." data-ar="مسؤولة عن تطوير التطبيقات التي تلبي أعلى معايير الجودة.">
-                            Responsible for developing applications that meet the highest quality standards.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-en="Featured Projects" data-ar="المشاريع المميزة">Featured Projects</h2>
-                <div class="section-divider"></div>
-            </div>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://www.universitycancer.com/wp-content/uploads/2023/05/ucbc-may-blog-2.jpg" alt="Brain Tumor Detection">
-                        <div class="project-overlay">
-                            <a href="https://github.com/NadaMostafaa/Data-Science-Projects/tree/main/Brain-Tumor-Detection" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title" data-en="Brain Tumor Detection" data-ar="اكتشاف أورام الدماغ">Brain Tumor Detection</h3>
-                        <p class="project-description" data-en="Deep learning model for medical image analysis using CNN to detect brain tumors with high accuracy." data-ar="نموذج تعلم عميق لتحليل الصور الطبية باستخدام الشبكات العصبية التطبيقية لاكتشاف أورام الدماغ بدقة عالية.">
-                            Deep learning model for medical image analysis using CNN to detect brain tumors with high accuracy.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Deep Learning</span>
-                            <span class="tag">CNN</span>
-                            <span class="tag">Medical AI</span>
-                            <span class="tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F16192307%2Fcffdbe90e777479a7cfca50b15a20f4e%2FWalmart5-scaled-1.jpg?generation=1707928578479827&alt=media" alt="Walmart Sales Analysis">
-                        <div class="project-overlay">
-                            <a href="https://github.com/NadaMostafaa/Data-Science-Projects/tree/main/Walmart_Sales_Final_Project" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title" data-en="Walmart Sales Analysis" data-ar="تحليل مبيعات وول مارت">Walmart Sales Analysis</h3>
-                        <p class="project-description" data-en="Comprehensive sales data analysis and forecasting using statistical methods and machine learning." data-ar="تحليل شامل لبيانات المبيعات والتنبؤ باستخدام الطرق الإحصائية وتعلم الآلة.">
-                            Comprehensive sales data analysis and forecasting using statistical methods and machine learning.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Data Analysis</span>
-                            <span class="tag">Forecasting</span>
-                            <span class="tag">Business Intelligence</span>
-                            <span class="tag">SQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://storage.googleapis.com/kaggle-datasets-images/3198793/5552662/7a0af412df1ec88be72edc76388d40ec/dataset-cover.jpg?t=2023-04-28-23-28-30" alt="Movie Data Analytics">
-                        <div class="project-overlay">
-                            <a href="https://github.com/NadaMostafaa/Data-Science-Projects/tree/main/Data%20Analytics%20with%20Movie%20Data" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title" data-en="Movie Data Analytics" data-ar="تحليل بيانات الأفلام">Movie Data Analytics</h3>
-                        <p class="project-description" data-en="Data visualization and analysis of movie industry trends, ratings, and box office performance." data-ar="تصور البيانات وتحليل اتجاهات صناعة السينما والتقييمات وأداء شباك التذاكر.">
-                            Data visualization and analysis of movie industry trends, ratings, and box office performance.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Data Visualization</span>
-                            <span class="tag">EDA</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">Pandas</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://storage.googleapis.com/kaggle-datasets-images/5823503/9556972/9d512ef839034165edf1c5df958556f9/dataset-cover.jpg?t=2024-10-06-02-41-36" alt="Agricultural Predictive Modeling">
-                        <div class="project-overlay">
-                            <a href="https://github.com/NadaMostafaa/Data-Science-Projects/tree/main/Predictive%20Modeling%20for%20Agriculture" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title" data-en="Agricultural Predictive Modeling" data-ar="النمذجة التنبؤية الزراعية">Agricultural Predictive Modeling</h3>
-                        <p class="project-description" data-en="Machine learning models to predict crop yields and optimize agricultural decisions." data-ar="نماذج تعلم الآلة للتنبؤ بإنتاجية المحاصيل وتحسين القرارات الزراعية.">
-                            Machine learning models to predict crop yields and optimize agricultural decisions.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">Agriculture</span>
-                            <span class="tag">Predictive Analytics</span>
-                            <span class="tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://storage.googleapis.com/kaggle-datasets-images/3543715/6175641/bfd8442e30733e7e37f950aaf6a06eda/dataset-cover.png?t=2023-07-22-06-25-10" alt="Credit Card Fraud Detection">
-                        <div class="project-overlay">
-                            <a href="https://github.com/NadaMostafaa/Data-Science-Projects/tree/main/Creditcard_fruad_detection" target="_blank" class="project-link">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title" data-en="Credit Card Fraud Detection" data-ar="اكتشاف احتيال بطاقات الائتمان">Credit Card Fraud Detection</h3>
-                        <p class="project-description" data-en="Advanced anomaly detection system to identify fraudulent credit card transactions." data-ar="نظام متقدم لاكتشاف الشذوذ لتحديد معاملات بطاقات الائتمان الاحتيالية.">
-                            Advanced anomaly detection system to identify fraudulent credit card transactions.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Anomaly Detection</span>
-                            <span class="tag">Classification</span>
-                            <span class="tag">Fraud Detection</span>
-                            <span class="tag">Machine Learning</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section id="certificates" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-en="Certifications" data-ar="الشهادات">Certifications</h2>
-                <div class="section-divider"></div>
-            </div>
-            
-            <div class="certificates-grid">
-                <div class="certificate-card">
-                    <div class="certificate-content">
-                        <img src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_200_200/company-logo_200_200/0/1723593046388/udemy_logo?e=2147483647&v=beta&t=_tl_e0tunbg9SkCl3nXHQEaQu4FlCGi4UU2chO9yBRs" alt="Udemy" class="certificate-logo">
-                        <div class="certificate-info">
-                            <h3 class="certificate-title" data-en="Python For Data Science" data-ar="Python لعلوم البيانات">Python For Data Science</h3>
-                            <p class="certificate-issuer">Udemy</p>
-                            <a href="https://www.udemy.com/certificate/UC-5a6925e9-314d-41f4-bbd9-1d5de0778b2a/" target="_blank" class="certificate-link">
-                                <i class="fas fa-award"></i>
-                                <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="certificate-card">
-                    <div class="certificate-content">
-                        <img src="https://play-lh.googleusercontent.com/zIO-uuTBjFigUIswv_h9S0-wVIkno_obwannvzr7NrXbh_MXL_khqV7gEqBly6KXEi4" alt="DataCamp" class="certificate-logo">
-                        <div class="certificate-info">
-                            <h3 class="certificate-title" data-en="Machine Learning Fundamentals with Python" data-ar="أساسيات تعلم الآلة مع Python">Machine Learning Fundamentals with Python</h3>
-                            <p class="certificate-issuer">DataCamp</p>
-                            <a href="https://www.datacamp.com/statement-of-accomplishment/track/72e5d9ab53b5cf710472e9fcc7930ec9cf9e6823?raw=1" target="_blank" class="certificate-link">
-                                <i class="fas fa-award"></i>
-                                <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="certificate-card">
-                    <div class="certificate-content">
-                        <img src="https://play-lh.googleusercontent.com/zIO-uuTBjFigUIswv_h9S0-wVIkno_obwannvzr7NrXbh_MXL_khqV7gEqBly6KXEi4" alt="DataCamp" class="certificate-logo">
-                        <div class="certificate-info">
-                            <h3 class="certificate-title" data-en="Deep Learning in Python" data-ar="التعلم العميق في Python">Deep Learning in Python</h3>
-                            <p class="certificate-issuer">DataCamp</p>
-                            <a href="https://www.datacamp.com/statement-of-accomplishment/track/68569ea309b8c0c2ba87a75b7577efc86fa84a70?raw=1" target="_blank" class="certificate-link">
-                                <i class="fas fa-award"></i>
-                                <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="certificate-card">
-                    <div class="certificate-content">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD6asIVHGu9jD0jvuASuTjYkEU9og2AP1FnQ&s" alt="Udacity" class="certificate-logo">
-                        <div class="certificate-info">
-                            <h3 class="certificate-title" data-en="Advanced Android Development NANODEGREE" data-ar="شهادة تطوير Android المتقدمة">Advanced Android Development NANODEGREE</h3>
-                            <p class="certificate-issuer">Udacity</p>
-                            <a href="https://www.udacity.com/certificate/FJRHEGJA" target="_blank" class="certificate-link">
-                                <i class="fas fa-award"></i>
-                                <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="certificate-card">
-                    <div class="certificate-content">
-                        <img src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_200_200/company-logo_200_200/0/1723593046388/udemy_logo?e=2147483647&v=beta&t=_tl_e0tunbg9SkCl3nXHQEaQu4FlCGi4UU2chO9yBRs" alt="Udemy" class="certificate-logo">
-                        <div class="certificate-info">
-                            <h3 class="certificate-title" data-en="Web Development Bootcamp" data-ar="معسكر تطوير الويب">Web Development Bootcamp</h3>
-                            <p class="certificate-issuer">Udemy</p>
-                            <a href="https://www.udemy.com/certificate/UC-106c298f-c24a-4fd0-b6bd-10b92463a0ea/" target="_blank" class="certificate-link">
-                                <i class="fas fa-award"></i>
-                                <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="certificate-card">
-                    <div class="certificate-content">
-                        <img src="https://media.licdn.com/dms/image/v2/C560BAQGK3uuhQer46g/company-logo_200_200/company-logo_200_200/0/1631351788797?e=2147483647&v=beta&t=oGL-yHbzSy8MbCU-d4CfsELlfgQP3KX_fm5F6wcaGxA" alt="ITI" class="certificate-logo">
-                        <div class="certificate-info">
-                            <h3 class="certificate-title" data-en="UI/UX Design" data-ar="تصميم واجهة وتجربة المستخدم">UI/UX Design</h3>
-                            <p class="certificate-issuer" data-en="Information Technology Institute (ITI)" data-ar="معهد تكنولوجيا المعلومات">Information Technology Institute (ITI)</p>
-                            <a href="https://drive.google.com/file/d/1bWYxW-e57ZPWOLPG6O_orXv60A8dOEtq/view" target="_blank" class="certificate-link">
-                                <i class="fas fa-award"></i>
-                                <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</h2>
-                <p class="hero-subtitle" data-en="Let's discuss opportunities and collaborations" data-ar="لنناقش الفرص والتعاون">Let's discuss opportunities and collaborations</p>
-                <div class="section-divider"></div>
-            </div>
-            
-            <div class="contact-content">
-                <!-- Resume Section First -->
-                <div class="resume-section">
-                    <div class="resume-card">
-                        <div class="resume-icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <h3 data-en="Download My Resume" data-ar="تحميل سيرتي الذاتية">Download My Resume</h3>
-                        <p data-en="Get a detailed overview of my experience, skills, and achievements." data-ar="احصل على نظرة عامة مفصلة عن خبرتي ومهاراتي وإنجازاتي.">
-                            Get a detailed overview of my experience, skills, and achievements.
-                        </p>
-                        <a href="https://drive.google.com/file/d/1FxHyc7TUNNU7jNCPmiDJbU4QAgQtg55e/view?usp=sharing" target="_blank" class="btn btn-primary">
-                            <i class="fas fa-download"></i>
-                            <span data-en="Download Resume" data-ar="تحميل السيرة الذاتية">Download Resume</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Social Media Links -->
-                <div class="contact-info-section">
-                    <h3 data-en="Let's Connect" data-ar="لنتواصل">Let's Connect</h3>
+                
+                <div class="about-content">
+                    <p class="about-text" data-en="Master's student in Data Science with a strong foundation in data analysis, software development and teaching. Experienced in Python, SQL, Power BI, and Android development. Proven ability to communicate technical concepts clearly through my work as a teaching assistant and lecturer. Passionate about continuous learning and leveraging data to solve real-world problems." data-ar="طالبة ماجستير في علوم البيانات مع أساس قوي في تحليل البيانات وتطوير البرمجيات والتدريس. خبرة في Python و SQL و Power BI وتطوير Android. قدرة مثبتة على توصيل المفاهيم التقنية بوضوح من خلال عملي كمساعد تدريس ومحاضر. شغوفة بالتعلم المستمر واستغلال البيانات لحل المشاكل الحقيقية.">
+                        Master's student in Data Science with a strong foundation in data analysis, software development and teaching. Experienced in Python, SQL, Power BI, and Android development. Proven ability to communicate technical concepts clearly through my work as a teaching assistant and lecturer. Passionate about continuous learning and leveraging data to solve real-world problems.
+                    </p>
                     
-                    <div class="contact-items">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
+                    <div class="contact-info-grid">
+                        <div class="contact-info">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <span data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-section">
+                        <h3 data-en="My Skills" data-ar="مهاراتي">My Skills</h3>
+                        <div class="skills-list">
+                            <article class="skill-item">
+                                <div class="skill-header">
+                                    <div class="skill-name">
+                                        <i class="fas fa-chart-bar" aria-hidden="true"></i>
+                                        <span data-en="Data Analytics" data-ar="تحليل البيانات">Data Analytics</span>
+                                    </div>
+                                    <span class="skill-percentage">95%</span>
+                                </div>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-progress" data-width="95"></div>
+                                </div>
+                            </article>
+
+                            <article class="skill-item">
+                                <div class="skill-header">
+                                    <div class="skill-name">
+                                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                                        <span data-en="Teaching" data-ar="التدريس">Teaching</span>
+                                    </div>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </article>
+
+                            <article class="skill-item">
+                                <div class="skill-header">
+                                    <div class="skill-name">
+                                        <i class="fas fa-search" aria-hidden="true"></i>
+                                        <span data-en="Research" data-ar="البحث">Research</span>
+                                    </div>
+                                    <span class="skill-percentage">88%</span>
+                                </div>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-progress" data-width="88"></div>
+                                </div>
+                            </article>
+
+                            <article class="skill-item">
+                                <div class="skill-header">
+                                    <div class="skill-name">
+                                        <i class="fas fa-code" aria-hidden="true"></i>
+                                        <span data-en="Programming Languages" data-ar="لغات البرمجة">Programming Languages</span>
+                                    </div>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </article>
+
+                            <article class="skill-item">
+                                <div class="skill-header">
+                                    <div class="skill-name">
+                                        <i class="fas fa-brain" aria-hidden="true"></i>
+                                        <span data-en="Machine Learning" data-ar="تعلم الآلة">Machine Learning</span>
+                                    </div>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                            </article>
+
+                            <article class="skill-item">
+                                <div class="skill-header">
+                                    <div class="skill-name">
+                                        <i class="fas fa-palette" aria-hidden="true"></i>
+                                        <span data-en="UI/UX Design" data-ar="تصميم واجهات المستخدم">UI/UX Design</span>
+                                    </div>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-en="Professional Experience" data-ar="الخبرة المهنية">Professional Experience</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="experience-timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        </div>
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div>
+                                    <h3 class="experience-title" data-en="Business Intelligence Specialist" data-ar="أخصائي ذكاء الأعمال">Business Intelligence Specialist</h3>
+                                    <p class="experience-company" data-en="Exology • Full Time" data-ar="Exology • دوام كامل">Exology • Full Time</p>
+                                </div>
+                                <div class="experience-badge">
+                                    <i class="fas fa-calendar" aria-hidden="true"></i>
+                                    <span data-en="Nov 2024 - Present" data-ar="نوفمبر 2024 - الحاضر">Nov 2024 - Present</span>
+                                </div>
                             </div>
-                            <div class="contact-details">
-                                <h4 data-en="Email" data-ar="البريد الإلكتروني">Email</h4>
-                                <a href="mailto:Nadam4943@gmail.com">Nadam4943@gmail.com</a>
+                            <p class="experience-description" data-en="Analyze data, create reports and dashboards and deliver actionable insights." data-ar="تحليل البيانات وإنشاء التقارير ولوحات المعلومات وتقديم رؤى قابلة للتنفيذ.">
+                                Analyze data, create reports and dashboards and deliver actionable insights.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                        </div>
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div>
+                                    <h3 class="experience-title" data-en="Lecturer" data-ar="محاضر">Lecturer</h3>
+                                    <p class="experience-company" data-en="Ustudy • Freelance" data-ar="Ustudy • عمل حر">Ustudy • Freelance</p>
+                                </div>
+                                <div class="experience-badge">
+                                    <i class="fas fa-calendar" aria-hidden="true"></i>
+                                    <span data-en="Nov 2024 - Present" data-ar="نوفمبر 2024 - الحاضر">Nov 2024 - Present</span>
+                                </div>
+                            </div>
+                            <p class="experience-description" data-en="Support computer science students enhancing their understanding of main concepts." data-ar="دعم طلاب علوم الحاسوب وتعزيز فهمهم للمفاهيم الأساسية.">
+                                Support computer science students enhancing their understanding of main concepts.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-code" aria-hidden="true"></i>
+                        </div>
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div>
+                                    <h3 class="experience-title" data-en="DEMI Coding Instructor" data-ar="مدرب برمجة DEMI">DEMI Coding Instructor</h3>
+                                    <p class="experience-company" data-en="Ischool • Remote" data-ar="Ischool • عن بُعد">Ischool • Remote</p>
+                                </div>
+                                <div class="experience-badge">
+                                    <i class="fas fa-calendar" aria-hidden="true"></i>
+                                    <span data-en="Oct 2024 - Dec 2024" data-ar="أكتوبر 2024 - ديسمبر 2024">Oct 2024 - Dec 2024</span>
+                                </div>
+                            </div>
+                            <p class="experience-description" data-en="Guide young learners on a coding journey in collaboration with the MCIT." data-ar="توجيه المتعلمين الصغار في رحلة البرمجة بالتعاون مع وزارة الاتصالات وتكنولوجيا المعلومات.">
+                                Guide young learners on a coding journey in collaboration with the MCIT.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+                        </div>
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div>
+                                    <h3 class="experience-title" data-en="Teaching Assistant" data-ar="مساعد تدريس">Teaching Assistant</h3>
+                                    <p class="experience-company" data-en="Canadian International College (CIC) • Full Time" data-ar="الكلية الكندية الدولية • دوام كامل">Canadian International College (CIC) • Full Time</p>
+                                </div>
+                                <div class="experience-badge">
+                                    <i class="fas fa-calendar" aria-hidden="true"></i>
+                                    <span data-en="Oct 2023 - July 2024" data-ar="أكتوبر 2023 - يوليو 2024">Oct 2023 - July 2024</span>
+                                </div>
+                            </div>
+                            <p class="experience-description" data-en="Supported computer science students in understanding programming languages and data structures. Delivered lab sessions, provided academic advising, and conducted one-on-one student mentoring." data-ar="دعم طلاب علوم الحاسوب في فهم لغات البرمجة وهياكل البيانات. تقديم جلسات المختبر والإرشاد الأكاديمي والتوجيه الفردي للطلاب.">
+                                Supported computer science students in understanding programming languages and data structures. Delivered lab sessions, provided academic advising, and conducted one-on-one student mentoring.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                        </div>
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div>
+                                    <h3 class="experience-title" data-en="Software Engineer Intern" data-ar="متدرب مهندس برمجيات">Software Engineer Intern</h3>
+                                    <p class="experience-company" data-en="E-Shire Technology • Remote" data-ar="E-Shire Technology • عن بُعد">E-Shire Technology • Remote</p>
+                                </div>
+                                <div class="experience-badge">
+                                    <i class="fas fa-calendar" aria-hidden="true"></i>
+                                    <span data-en="Oct 2023 - Nov 2023" data-ar="أكتوبر 2023 - نوفمبر 2023">Oct 2023 - Nov 2023</span>
+                                </div>
+                            </div>
+                            <p class="experience-description" data-en="Responsible for developing applications that meet the highest quality standards." data-ar="مسؤولة عن تطوير التطبيقات التي تلبي أعلى معايير الجودة.">
+                                Responsible for developing applications that meet the highest quality standards.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-en="Featured Projects" data-ar="المشاريع المميزة">Featured Projects</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <!-- Project Filter Buttons -->
+                <div class="filter-buttons" role="tablist" aria-label="Project categories">
+                    <button class="filter-btn active" onclick="filterProjects('all')" role="tab" aria-selected="true" data-en="All" data-ar="الكل">All</button>
+                    <button class="filter-btn" onclick="filterProjects('Machine Learning')" role="tab" aria-selected="false" data-en="Machine Learning" data-ar="تعلم الآلة">Machine Learning</button>
+                    <button class="filter-btn" onclick="filterProjects('Deep Learning')" role="tab" aria-selected="false" data-en="Deep Learning" data-ar="التعلم العميق">Deep Learning</button>
+                    <button class="filter-btn" onclick="filterProjects('Data Analysis')" role="tab" aria-selected="false" data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</button>
+                    <button class="filter-btn" onclick="filterProjects('Business Intelligence')" role="tab" aria-selected="false" data-en="Business Intelligence" data-ar="ذكاء الأعمال">Business Intelligence</button>
+                </div>
+                
+                <div class="projects-grid">
+                    <article class="project-card" data-category="Deep Learning">
+                        <div class="project-image">
+                            <img src="https://www.universitycancer.com/wp-content/uploads/2023/05/ucbc-may-blog-2.jpg" alt="Brain tumor detection using deep learning - medical imaging analysis project" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/NadaMostafaa/Data-Science-Projects/tree/main/Brain-Tumor-Detection" target="_blank" class="project-link" aria-label="View Brain Tumor Detection project on GitHub">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
                             </div>
                         </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>GitHub</h4>
-                                <a href="https://github.com/NadaMostafaa" target="_blank">github.com/NadaMostafaa</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/nadamostafaali/" target="_blank">linkedin.com/in/nadamostafaali</a>
+                        <div class="project-content">
+                            <h3 class="project-title" data-en="Brain Tumor Detection" data-ar="اكتشاف أورام الدماغ">Brain Tumor Detection</h3>
+                            <p class="project-description" data-en="Deep learning model for medical image analysis using CNN to detect brain tumors with high accuracy." data-ar="نموذج تعلم عميق لتحليل الصور الطبية باستخدام الشبكات العصبية التطبيقية لاكتشاف أورام الدماغ بدقة عالية.">
+                                Deep learning model for medical image analysis using CNN to detect brain tumors with high accuracy.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Deep Learning</span>
+                                <span class="tag">CNN</span>
+                                <span class="tag">Medical AI</span>
+                                <span class="tag">Python</span>
                             </div>
                         </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
+                    </article>
+
+                    <article class="project-card" data-category="Business Intelligence">
+                        <div class="project-image">
+                            <img src="https://www.googleapis.com/download/storage/v1/b/kaggle-user-content/o/inbox%2F16192307%2Fcffdbe90e777479a7cfca50b15a20f4e%2FWalmart5-scaled-1.jpg?generation=1707928578479827&alt=media" alt="Walmart sales analysis dashboard showing business intelligence insights" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/NadaMostafaa/Data-Science-Projects/tree/main/Walmart_Sales_Final_Project" target="_blank" class="project-link" aria-label="View Walmart Sales Analysis project on GitHub">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
                             </div>
-                            <div class="contact-details">
-                                <h4 data-en="Location" data-ar="الموقع">Location</h4>
-                                <p data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</p>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-en="Walmart Sales Analysis" data-ar="تحليل مبيعات وول مارت">Walmart Sales Analysis</h3>
+                            <p class="project-description" data-en="Comprehensive sales data analysis and forecasting using statistical methods and machine learning." data-ar="تحليل شامل لبيانات المبيعات والتنبؤ باستخدام الطرق الإحصائية وتعلم الآلة.">
+                                Comprehensive sales data analysis and forecasting using statistical methods and machine learning.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Data Analysis</span>
+                                <span class="tag">Forecasting</span>
+                                <span class="tag">Business Intelligence</span>
+                                <span class="tag">SQL</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="Data Analysis">
+                        <div class="project-image">
+                            <img src="https://storage.googleapis.com/kaggle-datasets-images/3198793/5552662/7a0af412df1ec88be72edc76388d40ec/dataset-cover.jpg?t=2023-04-28-23-28-30" alt="Movie industry data analytics visualization and trends analysis" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/NadaMostafaa/Data-Science-Projects/tree/main/Data%20Analytics%20with%20Movie%20Data" target="_blank" class="project-link" aria-label="View Movie Data Analytics project on GitHub">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-en="Movie Data Analytics" data-ar="تحليل بيانات الأفلام">Movie Data Analytics</h3>
+                            <p class="project-description" data-en="Data visualization and analysis of movie industry trends, ratings, and box office performance." data-ar="تصور البيانات وتحليل اتجاهات صناعة السينما والتقييمات وأداء شباك التذاكر.">
+                                Data visualization and analysis of movie industry trends, ratings, and box office performance.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Data Visualization</span>
+                                <span class="tag">EDA</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">Pandas</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="Machine Learning">
+                        <div class="project-image">
+                            <img src="https://storage.googleapis.com/kaggle-datasets-images/5823503/9556972/9d512ef839034165edf1c5df958556f9/dataset-cover.jpg?t=2024-10-06-02-41-36" alt="Agricultural predictive modeling for crop yield optimization" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/NadaMostafaa/Data-Science-Projects/tree/main/Predictive%20Modeling%20for%20Agriculture" target="_blank" class="project-link" aria-label="View Agricultural Predictive Modeling project on GitHub">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-en="Agricultural Predictive Modeling" data-ar="النمذجة التنبؤية الزراعية">Agricultural Predictive Modeling</h3>
+                            <p class="project-description" data-en="Machine learning models to predict crop yields and optimize agricultural decisions." data-ar="نماذج تعلم الآلة للتنبؤ بإنتاجية المحاصيل وتحسين القرارات الزراعية.">
+                                Machine learning models to predict crop yields and optimize agricultural decisions.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Agriculture</span>
+                                <span class="tag">Predictive Analytics</span>
+                                <span class="tag">Python</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="Machine Learning">
+                        <div class="project-image">
+                            <img src="https://storage.googleapis.com/kaggle-datasets-images/3543715/6175641/bfd8442e30733e7e37f950aaf6a06eda/dataset-cover.png?t=2023-07-22-06-25-10" alt="Credit card fraud detection system using machine learning algorithms" loading="lazy">
+                            <div class="project-overlay">
+                                <a href="https://github.com/NadaMostafaa/Data-Science-Projects/tree/main/Creditcard_fruad_detection" target="_blank" class="project-link" aria-label="View Credit Card Fraud Detection project on GitHub">
+                                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-en="Credit Card Fraud Detection" data-ar="اكتشاف احتيال بطاقات الائتمان">Credit Card Fraud Detection</h3>
+                            <p class="project-description" data-en="Advanced anomaly detection system to identify fraudulent credit card transactions." data-ar="نظام متقدم لاكتشاف الشذوذ لتحديد معاملات بطاقات الائتمان الاحتيالية.">
+                                Advanced anomaly detection system to identify fraudulent credit card transactions.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Anomaly Detection</span>
+                                <span class="tag">Classification</span>
+                                <span class="tag">Fraud Detection</span>
+                                <span class="tag">Machine Learning</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-en="Certifications" data-ar="الشهادات">Certifications</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="certificates-grid">
+                    <article class="certificate-card">
+                        <div class="certificate-content">
+                            <img src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_200_200/company-logo_200_200/0/1723593046388/udemy_logo?e=2147483647&v=beta&t=_tl_e0tunbg9SkCl3nXHQEaQu4FlCGi4UU2chO9yBRs" alt="Udemy logo - online learning platform" class="certificate-logo" loading="lazy">
+                            <div class="certificate-info">
+                                <h3 class="certificate-title" data-en="Python For Data Science" data-ar="Python لعلوم البيانات">Python For Data Science</h3>
+                                <p class="certificate-issuer">Udemy</p>
+                                <a href="https://www.udemy.com/certificate/UC-5a6925e9-314d-41f4-bbd9-1d5de0778b2a/" target="_blank" class="certificate-link" aria-label="View Python for Data Science certificate">
+                                    <i class="fas fa-award" aria-hidden="true"></i>
+                                    <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="certificate-card">
+                        <div class="certificate-content">
+                            <img src="https://play-lh.googleusercontent.com/zIO-uuTBjFigUIswv_h9S0-wVIkno_obwannvzr7NrXbh_MXL_khqV7gEqBly6KXEi4" alt="DataCamp logo - data science learning platform" class="certificate-logo" loading="lazy">
+                            <div class="certificate-info">
+                                <h3 class="certificate-title" data-en="Machine Learning Fundamentals with Python" data-ar="أساسيات تعلم الآلة مع Python">Machine Learning Fundamentals with Python</h3>
+                                <p class="certificate-issuer">DataCamp</p>
+                                <a href="https://www.datacamp.com/statement-of-accomplishment/track/72e5d9ab53b5cf710472e9fcc7930ec9cf9e6823?raw=1" target="_blank" class="certificate-link" aria-label="View Machine Learning Fundamentals certificate">
+                                    <i class="fas fa-award" aria-hidden="true"></i>
+                                    <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="certificate-card">
+                        <div class="certificate-content">
+                            <img src="https://play-lh.googleusercontent.com/zIO-uuTBjFigUIswv_h9S0-wVIkno_obwannvzr7NrXbh_MXL_khqV7gEqBly6KXEi4" alt="DataCamp logo - data science learning platform" class="certificate-logo" loading="lazy">
+                            <div class="certificate-info">
+                                <h3 class="certificate-title" data-en="Deep Learning in Python" data-ar="التعلم العميق في Python">Deep Learning in Python</h3>
+                                <p class="certificate-issuer">DataCamp</p>
+                                <a href="https://www.datacamp.com/statement-of-accomplishment/track/68569ea309b8c0c2ba87a75b7577efc86fa84a70?raw=1" target="_blank" class="certificate-link" aria-label="View Deep Learning in Python certificate">
+                                    <i class="fas fa-award" aria-hidden="true"></i>
+                                    <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="certificate-card">
+                        <div class="certificate-content">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD6asIVHGu9jD0jvuASuTjYkEU9og2AP1FnQ&s" alt="Udacity logo - online education platform" class="certificate-logo" loading="lazy">
+                            <div class="certificate-info">
+                                <h3 class="certificate-title" data-en="Advanced Android Development NANODEGREE" data-ar="شهادة تطوير Android المتقدمة">Advanced Android Development NANODEGREE</h3>
+                                <p class="certificate-issuer">Udacity</p>
+                                <a href="https://www.udacity.com/certificate/FJRHEGJA" target="_blank" class="certificate-link" aria-label="View Advanced Android Development Nanodegree certificate">
+                                    <i class="fas fa-award" aria-hidden="true"></i>
+                                    <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="certificate-card">
+                        <div class="certificate-content">
+                            <img src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_200_200/company-logo_200_200/0/1723593046388/udemy_logo?e=2147483647&v=beta&t=_tl_e0tunbg9SkCl3nXHQEaQu4FlCGi4UU2chO9yBRs" alt="Udemy logo - online learning platform" class="certificate-logo" loading="lazy">
+                            <div class="certificate-info">
+                                <h3 class="certificate-title" data-en="Web Development Bootcamp" data-ar="معسكر تطوير الويب">Web Development Bootcamp</h3>
+                                <p class="certificate-issuer">Udemy</p>
+                                <a href="https://www.udemy.com/certificate/UC-106c298f-c24a-4fd0-b6bd-10b92463a0ea/" target="_blank" class="certificate-link" aria-label="View Web Development Bootcamp certificate">
+                                    <i class="fas fa-award" aria-hidden="true"></i>
+                                    <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="certificate-card">
+                        <div class="certificate-content">
+                            <img src="https://media.licdn.com/dms/image/v2/C560BAQGK3uuhQer46g/company-logo_200_200/company-logo_200_200/0/1631351788797?e=2147483647&v=beta&t=oGL-yHbzSy8MbCU-d4CfsELlfgQP3KX_fm5F6wcaGxA" alt="ITI logo - Information Technology Institute" class="certificate-logo" loading="lazy">
+                            <div class="certificate-info">
+                                <h3 class="certificate-title" data-en="UI/UX Design" data-ar="تصميم واجهة وتجربة المستخدم">UI/UX Design</h3>
+                                <p class="certificate-issuer" data-en="Information Technology Institute (ITI)" data-ar="معهد تكنولوجيا المعلومات">Information Technology Institute (ITI)</p>
+                                <a href="https://drive.google.com/file/d/1bWYxW-e57ZPWOLPG6O_orXv60A8dOEtq/view" target="_blank" class="certificate-link" aria-label="View UI/UX Design certificate">
+                                    <i class="fas fa-award" aria-hidden="true"></i>
+                                    <span data-en="View Certificate" data-ar="عرض الشهادة">View Certificate</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</h2>
+                    <p class="hero-subtitle" data-en="Let's discuss opportunities and collaborations" data-ar="لنناقش الفرص والتعاون">Let's discuss opportunities and collaborations</p>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="contact-content">
+                    <!-- Resume Section First -->
+                    <div class="resume-section">
+                        <div class="resume-card">
+                            <div class="resume-icon">
+                                <i class="fas fa-file-alt" aria-hidden="true"></i>
+                            </div>
+                            <h3 data-en="Download My Resume" data-ar="تحميل سيرتي الذاتية">Download My Resume</h3>
+                            <p data-en="Get a detailed overview of my experience, skills, and achievements." data-ar="احصل على نظرة عامة مفصلة عن خبرتي ومهاراتي وإنجازاتي.">
+                                Get a detailed overview of my experience, skills, and achievements.
+                            </p>
+                            <a href="https://drive.google.com/file/d/1FxHyc7TUNNU7jNCPmiDJbU4QAgQtg55e/view?usp=sharing" target="_blank" class="btn btn-primary" aria-label="Download Nada Mostafa's resume">
+                                <i class="fas fa-download" aria-hidden="true"></i>
+                                <span data-en="Download Resume" data-ar="تحميل السيرة الذاتية">Download Resume</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="contact-info-section">
+                        <h3 data-en="Let's Connect" data-ar="لنتواصل">Let's Connect</h3>
+                        
+                        <div class="contact-items">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4 data-en="Email" data-ar="البريد الإلكتروني">Email</h4>
+                                    <a href="mailto:Nadam4943@gmail.com" aria-label="Send email to Nada Mostafa">Nadam4943@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>GitHub</h4>
+                                    <a href="https://github.com/NadaMostafaa" target="_blank" aria-label="Visit Nada Mostafa's GitHub profile">github.com/NadaMostafaa</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/nadamostafaali/" target="_blank" aria-label="Visit Nada Mostafa's LinkedIn profile">linkedin.com/in/nadamostafaali</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4 data-en="Location" data-ar="الموقع">Location</h4>
+                                    <p data-en="Cairo, Egypt" data-ar="القاهرة، مصر">Cairo, Egypt</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1676,12 +1764,13 @@
     </footer>
 
     <script>
-        // Theme and Language switching functionality
-        let currentLanguage = 'en';
-        let currentTheme = 'dark';
+        // Theme and Language switching functionality with localStorage persistence
+        let currentLanguage = localStorage.getItem('lang') || 'en';
+        let currentTheme = localStorage.getItem('theme') || 'dark';
 
         function toggleTheme() {
             currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', currentTheme);
             updateTheme();
         }
 
@@ -1711,6 +1800,7 @@
 
         function toggleLanguage() {
             currentLanguage = currentLanguage === 'en' ? 'ar' : 'en';
+            localStorage.setItem('lang', currentLanguage);
             updateLanguage();
         }
 
@@ -1720,6 +1810,9 @@
             
             // Update body direction for RTL
             document.body.className = currentLanguage === 'ar' ? 'rtl' : '';
+            if (currentTheme === 'light') {
+                document.body.setAttribute('data-theme', 'light');
+            }
             document.documentElement.lang = currentLanguage;
             
             // Update all translatable elements
@@ -1733,6 +1826,42 @@
             // Update language toggle button text
             langText.textContent = currentLanguage === 'en' ? 'العربية' : 'English';
         }
+
+        // Project filtering functionality
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update button states
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+            
+            event.target.classList.add('active');
+            event.target.setAttribute('aria-selected', 'true');
+            
+            // Filter cards
+            cards.forEach(card => {
+                const match = category === 'all' || card.dataset.category === category;
+                card.style.display = match ? 'block' : 'none';
+                
+                if (match) {
+                    card.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }
+
+        // Back to top functionality
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
         // Navigation functionality
         function updateActiveNavLink() {
@@ -1763,13 +1892,16 @@
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             const hamburger = document.querySelector('.hamburger');
+            const isOpen = mobileMenu.style.display === 'block';
             
-            if (mobileMenu.style.display === 'block') {
+            if (isOpen) {
                 mobileMenu.style.display = 'none';
                 hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
             } else {
                 mobileMenu.style.display = 'block';
                 hamburger.classList.add('active');
+                hamburger.setAttribute('aria-expanded', 'true');
             }
         }
 
@@ -1851,11 +1983,14 @@
 
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme and language from localStorage
+            updateTheme();
+            updateLanguage();
+            
             initSmoothScrolling();
             initScrollAnimations();
             initNavbarScroll();
             updateActiveNavLink();
-            updateTheme();
             
             // Add loading animation to elements
             const loadingElements = document.querySelectorAll('.loading');
@@ -1871,6 +2006,7 @@
             const mobileMenu = document.getElementById('mobile-menu');
             if (window.innerWidth > 768) {
                 mobileMenu.style.display = 'none';
+                document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
             }
         });
 
